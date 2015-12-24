@@ -1,0 +1,12 @@
+{
+  "compilerOptions": {
+    "target": "es5",
+    "module": "commonjs",
+    "sourceMap": true,
+    "outFile": "../../js/test.js"
+  },
+  "exclude": [
+    "node_modules",
+    "bower_components"
+  ]
+}
