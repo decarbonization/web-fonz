@@ -1,60 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="33f945ed-288d-40bb-9542-bcaf624dde63" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.gitignore" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/.name" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/encodings.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/typescript-compiler.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/web-fonz.iml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/game.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/data/Piece.ts" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/data/PowerUp.ts" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/data/Slot.ts" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/data/UpcomingPiece.ts" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/events/BaseEvent.ts" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/events/BaseValueEvent.ts" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/events/Bus.ts" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main.ts" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/state/Pie.ts" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/state/Score.ts" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/tsconfig.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test/bower.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test/bower_components/chai/.bower.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test/bower_components/chai/CONTRIBUTING.md" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test/bower_components/chai/History.md" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test/bower_components/chai/README.md" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test/bower_components/chai/ReleaseNotes.md" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test/bower_components/chai/bower.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test/bower_components/chai/chai.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test/bower_components/chai/karma.conf.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test/bower_components/chai/karma.sauce.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test/bower_components/chai/package.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test/bower_components/chai/sauce.browsers.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test/bower_components/mocha/.bower.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test/bower_components/mocha/.editorconfig" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test/bower_components/mocha/.eslintrc" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test/bower_components/mocha/.mailmap" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test/bower_components/mocha/CONTRIBUTING.md" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test/bower_components/mocha/HISTORY.md" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test/bower_components/mocha/LICENSE" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test/bower_components/mocha/README.md" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test/bower_components/mocha/bower.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test/bower_components/mocha/media/logo.svg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test/bower_components/mocha/mocha.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test/bower_components/mocha/mocha.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test/bower_components/mocha/scripts/ensure-compatible-npm.sh" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test/src/events/BusTests.ts" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test/src/state/ScoreTests.ts" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test/src/test.d.ts" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test/src/tsconfig.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/type-definitions/chai.d.ts" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/type-definitions/mocha.d.ts" />
+    <list default="true" id="33f945ed-288d-40bb-9542-bcaf624dde63" name="Default" comment="initial commit">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/state/Life.ts" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test/src/state/LifeTests..ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/src/events/BusTests.ts" afterPath="$PROJECT_DIR$/test/src/events/BusTests.ts" />
     </list>
     <ignored path="web-fonz.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -74,7 +26,38 @@
     <favorites_list name="web-fonz" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="600" />
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="600">
+      <file leaf-file-name="Life.ts" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/state/Life.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="17" column="5" selection-start-line="17" selection-start-column="5" selection-end-line="17" selection-end-column="5" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="LifeTests..ts" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/test/src/state/LifeTests..ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.68417364">
+              <caret line="48" column="42" selection-start-line="48" selection-start-column="42" selection-end-line="48" selection-end-column="42" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ScoreTests.ts" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/test/src/state/ScoreTests.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="25" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -108,13 +91,15 @@
         <option value="$PROJECT_DIR$/test/index.html" />
         <option value="$PROJECT_DIR$/test/src/tsconfig.json" />
         <option value="$PROJECT_DIR$/test.html" />
-        <option value="$PROJECT_DIR$/test/src/events/BusTests.ts" />
         <option value="$PROJECT_DIR$/src/events/Bus.ts" />
         <option value="$PROJECT_DIR$/src/events/BaseEvent.ts" />
         <option value="$PROJECT_DIR$/src/events/BaseValueEvent.ts" />
         <option value="$PROJECT_DIR$/src/state/Score.ts" />
         <option value="$PROJECT_DIR$/test/src/state/ScoreTests.ts" />
         <option value="$PROJECT_DIR$/.gitignore" />
+        <option value="$PROJECT_DIR$/test/src/events/BusTests.ts" />
+        <option value="$PROJECT_DIR$/src/state/Life.ts" />
+        <option value="$PROJECT_DIR$/test/src/state/LifeTests..ts" />
       </list>
     </option>
   </component>
@@ -139,7 +124,7 @@
     <OptionsSetting value="true" id="Update" />
     <OptionsSetting value="true" id="Status" />
     <OptionsSetting value="true" id="Edit" />
-    <ConfirmationsSetting value="0" id="Add" />
+    <ConfirmationsSetting value="2" id="Add" />
     <ConfirmationsSetting value="0" id="Remove" />
   </component>
   <component name="ProjectView">
@@ -302,20 +287,6 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="web-fonz" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="web-fonz" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="js" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
         </subPane>
       </pane>
       <pane id="Scratches" />
@@ -473,6 +444,13 @@
       <option name="number" value="Default" />
       <updated>1450839721566</updated>
     </task>
+    <task id="LOCAL-00001" summary="initial commit">
+      <created>1450990281220</created>
+      <option name="number" value="00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1450990281220</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -509,11 +487,12 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-13" y="-13" width="2762" height="1770" extended-state="6" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="TypeScript Compiler" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3283582" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3294837" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -540,6 +519,12 @@
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
+    <MESSAGE value="initial commit" />
+    <option name="LAST_COMMIT_MESSAGE" value="initial commit" />
+    <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -789,14 +774,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/test/src/events/BusTests.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3970588">
-          <caret line="33" column="67" selection-start-line="33" selection-start-column="67" selection-end-line="33" selection-end-column="67" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/events/Bus.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="1.2920169">
@@ -825,14 +802,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/test/src/state/ScoreTests.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5406163">
-          <caret line="71" column="7" selection-start-line="71" selection-start-column="7" selection-end-line="71" selection-end-column="7" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/state/Score.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.7177871">
@@ -845,6 +814,38 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.369035">
           <caret line="19" column="6" selection-start-line="19" selection-start-column="6" selection-end-line="19" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/src/events/BusTests.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.33963585">
+          <caret line="31" column="38" selection-start-line="31" selection-start-column="38" selection-end-line="31" selection-end-column="38" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/src/state/ScoreTests.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/state/Life.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="17" column="5" selection-start-line="17" selection-start-column="5" selection-end-line="17" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/src/state/LifeTests..ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.68417364">
+          <caret line="48" column="42" selection-start-line="48" selection-start-column="42" selection-end-line="48" selection-end-column="42" />
           <folding />
         </state>
       </provider>

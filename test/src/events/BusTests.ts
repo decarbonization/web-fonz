@@ -8,42 +8,42 @@ suite('BusTests', () => {
     });
 
     test('#post', () => {
-        var listener = new Listener();
+        var listener = new BusTestsListener();
         bus.register(listener);
 
-        bus.post(new TestEvent(1));
-        bus.post(new TestEvent(2));
-        bus.post(new TestEvent(3));
+        bus.post(new BusTestEvent(1));
+        bus.post(new BusTestEvent(2));
+        bus.post(new BusTestEvent(3));
 
         assert.deepEqual(listener.events.map((e) => e.value), [1, 2, 3]);
     });
 
     test('#registration', () => {
-        var listener = new Listener();
+        var listener = new BusTestsListener();
         bus.register(listener);
 
-        bus.post(new TestEvent(1));
+        bus.post(new BusTestEvent(1));
 
         assert.deepEqual(listener.events.map((e) => e.value), [1]);
 
         bus.unregister(listener);
 
-        bus.post(new TestEvent(2));
-        bus.post(new TestEvent(3));
+        bus.post(new BusTestEvent(2));
+        bus.post(new BusTestEvent(3));
 
         assert.deepEqual(listener.events.map((e) => e.value), [1]);
     });
 });
 
-class TestEvent {
+class BusTestEvent {
     constructor(public value: number) {}
 }
 
-class Listener {
-    public events: Array<TestEvent> = [];
+class BusTestsListener {
+    public events: Array<BusTestEvent> = [];
 
-    @subscribe(TestEvent)
-    onTestEvent(testEvent: TestEvent): void {
+    @subscribe(BusTestEvent)
+    onTestEvent(testEvent: BusTestEvent): void {
         this.events.push(testEvent);
     }
 }
