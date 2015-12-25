@@ -5,4 +5,4 @@ enum Slot {
     SLOT_BOTTOM_LEFT,
     SLOT_BOTTOM_CENTER,
     SLOT_BOTTOM_RIGHT,
-};
+}

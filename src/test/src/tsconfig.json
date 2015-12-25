@@ -3,10 +3,10 @@
     "target": "es5",
     "module": "commonjs",
     "sourceMap": true,
-    "outFile": "../js/app.js",
-    "declaration": true
+    "outFile": "../../../js/test.js"
   },
   "exclude": [
-    "node_modules"
+    "node_modules",
+    "bower_components"
   ]
 }

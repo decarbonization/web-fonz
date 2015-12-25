@@ -184,8 +184,8 @@ declare module Mocha {
         timeout(ms: number): void;
     }
 
-    module reporters {
-        class Base {
+    export module reporters {
+        export class Base {
             stats: {
                 suites: number;
                 tests: number;
@@ -197,19 +197,19 @@ declare module Mocha {
             constructor(runner: IRunner);
         }
 
-        class Doc extends Base {}
-        class Dot extends Base {}
-        class HTML extends Base {}
-        class HTMLCov extends Base {}
-        class JSON extends Base {}
-        class JSONCov extends Base {}
-        class JSONStream extends Base {}
-        class Landing extends Base {}
-        class List extends Base {}
-        class Markdown extends Base {}
-        class Min extends Base {}
-        class Nyan extends Base {}
-        class Progress extends Base {
+        export class Doc extends Base {}
+        export class Dot extends Base {}
+        export class HTML extends Base {}
+        export class HTMLCov extends Base {}
+        export class JSON extends Base {}
+        export class JSONCov extends Base {}
+        export class JSONStream extends Base {}
+        export class Landing extends Base {}
+        export class List extends Base {}
+        export class Markdown extends Base {}
+        export class Min extends Base {}
+        export class Nyan extends Base {}
+        export class Progress extends Base {
             /**
              * @param options.open String used to indicate the start of the progress bar.
              * @param options.complete String used to indicate a complete test on the progress bar.
@@ -223,14 +223,14 @@ declare module Mocha {
                 close?: string;
             });
         }
-        class Spec extends Base {}
-        class TAP extends Base {}
-        class XUnit extends Base {
+        export class Spec extends Base {}
+        export class TAP extends Base {}
+        export class XUnit extends Base {
             constructor(runner: IRunner, options?: any);
         }
     }
 }
 
 declare module "mocha" {
-    = Mocha;
+    export = Mocha;
 }
