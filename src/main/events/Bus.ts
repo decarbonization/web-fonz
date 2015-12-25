@@ -1,10 +1,10 @@
-const SubscribeTag = "$Bus#Subscribe";
+const SubscribeTag = "Fonz$Bus$subscribe$tag";
 
 class Subscriber {
-    constructor(public target: any, public tag: any, public callback: (any) => void) {}
+    constructor(public target: any, public tag: Function, public callback: (any) => void) {}
 }
 
-function subscribe<T>(tag: any) {
+function subscribe<T>(tag: Function) {
     return (target: any, propertyKey: string, descriptor: TypedPropertyDescriptor<(T) => void>) => {
         if (descriptor === undefined) {
             descriptor = target[propertyKey];
@@ -32,7 +32,7 @@ class Bus {
             //noinspection JSUnfilteredForInLoop
             var field: any = target[property];
             if (SubscribeTag in field) {
-                var tag: any = field[SubscribeTag];
+                var tag: Function = field[SubscribeTag];
                 var callback = field.bind(target);
                 this.subscribers.push(new Subscriber(target, tag, callback));
             }
