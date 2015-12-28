@@ -2,14 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="33f945ed-288d-40bb-9542-bcaf624dde63" name="Default" comment="port Board class and tests">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/state/Board.ts" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/util/EnumSet.ts" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/test/src/state/BoardTests.ts" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/test/src/util/EnumSetTests.ts" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/events/Bus.ts" afterPath="$PROJECT_DIR$/src/main/util/Bus.ts" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/test/src/events/BusTests.ts" afterPath="$PROJECT_DIR$/src/test/src/util/BusTests.ts" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/util/Scheduler.ts" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/test/src/util/MockSchedulerTests.ts" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/data/PowerUp.ts" afterPath="$PROJECT_DIR$/src/main/data/PowerUp.ts" />
     </list>
     <ignored path="web-fonz.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -30,21 +25,21 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="BoardTests.ts" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test/src/state/BoardTests.ts">
+      <file leaf-file-name="Scheduler.ts" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/util/Scheduler.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="25" column="46" selection-start-line="25" selection-start-column="46" selection-end-line="25" selection-end-column="46" />
+            <state vertical-scroll-proportion="1.004902">
+              <caret line="35" column="10" selection-start-line="35" selection-start-column="10" selection-end-line="35" selection-end-column="10" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Board.ts" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/state/Board.ts">
+      <file leaf-file-name="MockSchedulerTests.ts" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/test/src/util/MockSchedulerTests.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.27731094">
-              <caret line="22" column="5" selection-start-line="22" selection-start-column="5" selection-end-line="22" selection-end-column="5" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="25" column="43" selection-start-line="25" selection-start-column="43" selection-end-line="25" selection-end-column="43" />
               <folding />
             </state>
           </provider>
@@ -113,6 +108,9 @@
         <option value="$PROJECT_DIR$/src/test/src/util/EnumSetTests.ts" />
         <option value="$PROJECT_DIR$/src/main/util/EnumSet.ts" />
         <option value="$PROJECT_DIR$/src/test/src/state/BoardTests.ts" />
+        <option value="$PROJECT_DIR$/src/main/util/Scheduler" />
+        <option value="$PROJECT_DIR$/src/main/util/Scheduler.ts" />
+        <option value="$PROJECT_DIR$/src/test/src/util/MockSchedulerTests.ts" />
       </list>
     </option>
   </component>
@@ -308,20 +306,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="state" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="web-fonz" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="web-fonz" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="js" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -551,7 +535,13 @@
       <option name="project" value="LOCAL" />
       <updated>1451275601623</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="port Board class and tests">
+      <created>1451289209901</created>
+      <option name="number" value="00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1451289209901</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -636,22 +626,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/state/Life.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="17" column="5" selection-start-line="17" selection-start-column="5" selection-end-line="17" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/src/state/LifeTests..ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/test/src/state/ScoreTests.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -994,14 +968,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/test.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.8083242">
-          <caret line="42" column="47" selection-start-line="42" selection-start-column="47" selection-end-line="42" selection-end-column="47" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/js/app.d.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.33296824">
@@ -1026,18 +992,42 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/state/Board.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.27731094">
+          <caret line="22" column="5" selection-start-line="22" selection-start-column="5" selection-end-line="22" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/test/src/state/BoardTests.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
+        <state vertical-scroll-proportion="0.34593838">
           <caret line="25" column="46" selection-start-line="25" selection-start-column="46" selection-end-line="25" selection-end-column="46" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/state/Board.ts">
+    <entry file="file://$PROJECT_DIR$/js/test.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.27731094">
-          <caret line="22" column="5" selection-start-line="22" selection-start-column="5" selection-end-line="22" selection-end-column="5" />
+        <state vertical-scroll-proportion="0.32943925">
+          <caret line="417" column="44" selection-start-line="417" selection-start-column="44" selection-end-line="417" selection-end-column="44" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/src/util/MockSchedulerTests.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="25" column="43" selection-start-line="25" selection-start-column="43" selection-end-line="25" selection-end-column="43" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/util/Scheduler.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="1.004902">
+          <caret line="35" column="10" selection-start-line="35" selection-start-column="10" selection-end-line="35" selection-end-column="10" />
           <folding />
         </state>
       </provider>
