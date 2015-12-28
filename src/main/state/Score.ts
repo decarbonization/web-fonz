@@ -10,7 +10,7 @@ class Score {
     }
 
     addPie(allSameColor: boolean): void {
-        var score = Pie.NUMBER_SLOTS * Score.SCORE_PER_PIECE;
+        var score = Slots.COUNT * Score.SCORE_PER_PIECE;
         if (allSameColor) {
             score *= 2;
         }

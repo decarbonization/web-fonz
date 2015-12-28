@@ -1,8 +1,19 @@
 enum Slot {
-    SLOT_TOP_LEFT,
-    SLOT_TOP_CENTER,
-    SLOT_TOP_RIGHT,
-    SLOT_BOTTOM_LEFT,
-    SLOT_BOTTOM_CENTER,
-    SLOT_BOTTOM_RIGHT,
+    TOP_LEFT = 0,
+    TOP_CENTER,
+    TOP_RIGHT,
+    BOTTOM_LEFT,
+    BOTTOM_CENTER,
+    BOTTOM_RIGHT,
+}
+
+class Slots {
+    static FIRST = Slot.TOP_LEFT;
+    static COUNT = 6;
+
+    static forEach(f: (Slot) => void): void {
+        for (var slot = Slots.FIRST; slot < Slots.COUNT; slot++) {
+            f(slot);
+        }
+    }
 }
