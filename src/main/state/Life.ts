@@ -32,7 +32,7 @@ class Life {
     }
 }
 
-class LifeChangedEvent extends BaseValueEvent<number> {
+class LifeChangedEvent extends BusValueEvent<number> {
     constructor(value:number) {
         super(value);
     }

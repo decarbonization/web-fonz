@@ -62,7 +62,7 @@ class Board {
     }
 }
 
-class PowerUpChangedEvent extends BaseValueEvent<PowerUp> {
+class PowerUpChangedEvent extends BusValueEvent<PowerUp> {
     constructor(value: PowerUp) {
         super(value);
     }

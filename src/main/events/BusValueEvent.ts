@@ -1,4 +1,6 @@
-abstract class BaseValueEvent<T> extends BaseEvent {
+///<reference path="BusEvent.ts"/>
+
+abstract class BusValueEvent<T> extends BusEvent {
     constructor(private _value: T) {
         super();
     }

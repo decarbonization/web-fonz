@@ -27,7 +27,7 @@ class Score {
     }
 }
 
-class ScoreChangedEvent extends BaseValueEvent<number> {
+class ScoreChangedEvent extends BusValueEvent<number> {
     constructor(value: number) {
         super(value);
     }
