@@ -1,10 +1,16 @@
 ///<reference path="widget/Button.ts"/>
+///<reference path="game/Game.ts"/>
+///<reference path="util/Bus.ts"/>
 
 class Fonz {
+    bus: Bus = new Bus();
+    game: Game;
     gameButton: Button;
 
     run(): void {
         console.log("Fonz#run");
+
+        this.game = new Game(this.bus);
 
         var settingsButton = Button.$('#game-control-settings');
         settingsButton.onClick = this.onSettingsClicked.bind(this);

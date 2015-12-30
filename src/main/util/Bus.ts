@@ -31,6 +31,9 @@ class Bus {
         for (var property in target) {
             //noinspection JSUnfilteredForInLoop
             var field: any = target[property];
+            if (field == null || typeof field !== 'object') {
+                continue;
+            }
             if (SubscribeTag in field) {
                 var tag: Function = field[SubscribeTag];
                 var callback = field.bind(target);
