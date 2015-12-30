@@ -1,0 +1,76 @@
+@import "dimensions";
+@import "images";
+
+@mixin piece-class($vertical, $horizontal, $color) {
+  //noinspection CssOptimizeSimilarProperties
+  .piece_#{$vertical}_#{$horizontal}_#{$color} {
+    @include background-ref("piece_#{$vertical}_#{$horizontal}_#{$color}");
+    background-repeat: no-repeat;
+    background-position: center center;
+    width: $pie_width;
+    height: $pie_height;
+  }
+}
+
+@mixin piece-class-set($color) {
+  @include piece-class('top', 'left', $color);
+  @include piece-class('top', 'center', $color);
+  @include piece-class('top', 'right', $color);
+  @include piece-class('bottom', 'left', $color);
+  @include piece-class('bottom', 'center', $color);
+  @include piece-class('bottom', 'right', $color);
+}
+
+@mixin power-up-class($name) {
+  //noinspection CssOptimizeSimilarProperties
+  .power-up-#{$name} {
+    @include background-ref("power_up_#{$name}");
+    background-repeat: no-repeat;
+    background-position: center center;
+    width: $power_up_width;
+    height: $power_up_height;
+    margin: 0 auto;
+  }
+}
+
+//noinspection CssOptimizeSimilarProperties
+.pie {
+  @include background-ref("background_pie");
+  background-repeat: no-repeat;
+  background-position: center center;
+  width: $pie_width;
+  height: $pie_height;
+  padding: $pie_padding;
+  margin: $gap_large auto;
+}
+
+@include piece-class-set('green');
+@include piece-class-set('orange');
+@include piece-class-set('purple');
+
+@include power-up-class('2x');
+@include power-up-class('clear');
+@include power-up-class('timer');
+
+//noinspection CssOptimizeSimilarProperties
+.upcoming {
+  @include background-ref("background_pie");
+  background-repeat: no-repeat;
+  background-position: center center;
+  width: $upcoming_width;
+  height: $upcoming_height;
+  padding: $upcoming_padding;
+  margin: $gap_large auto;
+}
+
+.board {
+  display: table;
+  table-layout: fixed;
+  width: 100%;
+}
+
+.board .column {
+  display: table-cell;
+  width: 33%;
+  vertical-align: middle;
+}
