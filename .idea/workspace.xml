@@ -1,56 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="33f945ed-288d-40bb-9542-bcaf624dde63" name="Default" comment="add images and empty stylesheet">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/style/board.scss" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/style/dimensions.scss" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/style/images.scss" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/img/1x/background_pie.png" afterPath="$PROJECT_DIR$/style/img/1x/background_pie.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/img/1x/piece_bottom_center_green.png" afterPath="$PROJECT_DIR$/style/img/1x/piece_bottom_center_green.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/img/1x/piece_bottom_center_orange.png" afterPath="$PROJECT_DIR$/style/img/1x/piece_bottom_center_orange.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/img/1x/piece_bottom_center_purple.png" afterPath="$PROJECT_DIR$/style/img/1x/piece_bottom_center_purple.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/img/1x/piece_bottom_left_green.png" afterPath="$PROJECT_DIR$/style/img/1x/piece_bottom_left_green.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/img/1x/piece_bottom_left_orange.png" afterPath="$PROJECT_DIR$/style/img/1x/piece_bottom_left_orange.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/img/1x/piece_bottom_left_purple.png" afterPath="$PROJECT_DIR$/style/img/1x/piece_bottom_left_purple.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/img/1x/piece_bottom_right_green.png" afterPath="$PROJECT_DIR$/style/img/1x/piece_bottom_right_green.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/img/1x/piece_bottom_right_orange.png" afterPath="$PROJECT_DIR$/style/img/1x/piece_bottom_right_orange.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/img/1x/piece_bottom_right_purple.png" afterPath="$PROJECT_DIR$/style/img/1x/piece_bottom_right_purple.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/img/1x/piece_top_center_green.png" afterPath="$PROJECT_DIR$/style/img/1x/piece_top_center_green.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/img/1x/piece_top_center_orange.png" afterPath="$PROJECT_DIR$/style/img/1x/piece_top_center_orange.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/img/1x/piece_top_center_purple.png" afterPath="$PROJECT_DIR$/style/img/1x/piece_top_center_purple.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/img/1x/piece_top_left_green.png" afterPath="$PROJECT_DIR$/style/img/1x/piece_top_left_green.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/img/1x/piece_top_left_orange.png" afterPath="$PROJECT_DIR$/style/img/1x/piece_top_left_orange.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/img/1x/piece_top_left_purple.png" afterPath="$PROJECT_DIR$/style/img/1x/piece_top_left_purple.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/img/1x/piece_top_right_green.png" afterPath="$PROJECT_DIR$/style/img/1x/piece_top_right_green.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/img/1x/piece_top_right_orange.png" afterPath="$PROJECT_DIR$/style/img/1x/piece_top_right_orange.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/img/1x/piece_top_right_purple.png" afterPath="$PROJECT_DIR$/style/img/1x/piece_top_right_purple.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/img/1x/power_up_2x.png" afterPath="$PROJECT_DIR$/style/img/1x/power_up_2x.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/img/1x/power_up_clear_all.png" afterPath="$PROJECT_DIR$/style/img/1x/power_up_clear.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/img/1x/power_up_timer.png" afterPath="$PROJECT_DIR$/style/img/1x/power_up_timer.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/img/2x/background_pie.png" afterPath="$PROJECT_DIR$/style/img/2x/background_pie.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/img/2x/piece_bottom_center_green.png" afterPath="$PROJECT_DIR$/style/img/2x/piece_bottom_center_green.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/img/2x/piece_bottom_center_orange.png" afterPath="$PROJECT_DIR$/style/img/2x/piece_bottom_center_orange.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/img/2x/piece_bottom_center_purple.png" afterPath="$PROJECT_DIR$/style/img/2x/piece_bottom_center_purple.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/img/2x/piece_bottom_left_green.png" afterPath="$PROJECT_DIR$/style/img/2x/piece_bottom_left_green.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/img/2x/piece_bottom_left_orange.png" afterPath="$PROJECT_DIR$/style/img/2x/piece_bottom_left_orange.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/img/2x/piece_bottom_left_purple.png" afterPath="$PROJECT_DIR$/style/img/2x/piece_bottom_left_purple.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/img/2x/piece_bottom_right_green.png" afterPath="$PROJECT_DIR$/style/img/2x/piece_bottom_right_green.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/img/2x/piece_bottom_right_orange.png" afterPath="$PROJECT_DIR$/style/img/2x/piece_bottom_right_orange.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/img/2x/piece_bottom_right_purple.png" afterPath="$PROJECT_DIR$/style/img/2x/piece_bottom_right_purple.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/img/2x/piece_top_center_green.png" afterPath="$PROJECT_DIR$/style/img/2x/piece_top_center_green.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/img/2x/piece_top_center_orange.png" afterPath="$PROJECT_DIR$/style/img/2x/piece_top_center_orange.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/img/2x/piece_top_center_purple.png" afterPath="$PROJECT_DIR$/style/img/2x/piece_top_center_purple.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/img/2x/piece_top_left_green.png" afterPath="$PROJECT_DIR$/style/img/2x/piece_top_left_green.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/img/2x/piece_top_left_orange.png" afterPath="$PROJECT_DIR$/style/img/2x/piece_top_left_orange.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/img/2x/piece_top_left_purple.png" afterPath="$PROJECT_DIR$/style/img/2x/piece_top_left_purple.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/img/2x/piece_top_right_green.png" afterPath="$PROJECT_DIR$/style/img/2x/piece_top_right_green.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/img/2x/piece_top_right_orange.png" afterPath="$PROJECT_DIR$/style/img/2x/piece_top_right_orange.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/img/2x/piece_top_right_purple.png" afterPath="$PROJECT_DIR$/style/img/2x/piece_top_right_purple.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/img/2x/power_up_2x.png" afterPath="$PROJECT_DIR$/style/img/2x/power_up_2x.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/img/2x/power_up_clear_all.png" afterPath="$PROJECT_DIR$/style/img/2x/power_up_clear.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/img/2x/power_up_timer.png" afterPath="$PROJECT_DIR$/style/img/2x/power_up_timer.png" />
+    <list default="true" id="33f945ed-288d-40bb-9542-bcaf624dde63" name="Default" comment="basic board markup and styles">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.html" afterPath="$PROJECT_DIR$/index.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/style/main.scss" afterPath="$PROJECT_DIR$/style/main.scss" />
     </list>
     <ignored path="web-fonz.iws" />
@@ -200,20 +152,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="web-fonz" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="web-fonz" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="web-fonz" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="style" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -464,7 +402,13 @@
       <option name="project" value="LOCAL" />
       <updated>1451450447249</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="basic board markup and styles">
+      <created>1451453379990</created>
+      <option name="number" value="00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1451453379990</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -543,7 +487,8 @@
     <MESSAGE value="port Board class and tests" />
     <MESSAGE value="implement Scheduler abstraction" />
     <MESSAGE value="add images and empty stylesheet" />
-    <option name="LAST_COMMIT_MESSAGE" value="add images and empty stylesheet" />
+    <MESSAGE value="basic board markup and styles" />
+    <option name="LAST_COMMIT_MESSAGE" value="basic board markup and styles" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">
@@ -884,18 +829,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/style/main.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.20782042">
-          <caret line="7" column="1" selection-start-line="7" selection-start-column="1" selection-end-line="7" selection-end-column="1" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.16871832">
           <caret line="17" column="47" selection-start-line="17" selection-start-column="47" selection-end-line="17" selection-end-column="47" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/style/main.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.5546705">
+          <caret line="29" column="19" selection-start-line="29" selection-start-column="19" selection-end-line="29" selection-end-column="19" />
           <folding />
         </state>
       </provider>
