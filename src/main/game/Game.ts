@@ -15,6 +15,8 @@ class Game {
     public score: Score;
     public board: Board;
 
+    private countUp: CountUp;
+
     private pieceFactory: PieceFactory = new PieceFactory();
     private _inProgress: boolean = false;
     private _paused: boolean = false;
@@ -24,6 +26,8 @@ class Game {
         this.life = new Life(bus);
         this.score = new Score(bus);
         this.board = new Board(bus);
+
+        this.countUp = new CountUp(bus);
 
         bus.register(this);
     }
@@ -51,7 +55,7 @@ class Game {
         this.upcomingPiece = this.pieceFactory.generateUpcomingPiece();
         console.log("Game: Upcoming piece " + this.upcomingPiece);
 
-        //countUp.start();
+        this.countUp.start();
 
         this.bus.post(new UpcomingPieceAvailableEvent());
     }
@@ -61,7 +65,7 @@ class Game {
 
         this.pieceFactory.reset();
 
-        //countUp.stop();
+        this.countUp.stop();
         //powerUpTimer.stop();
 
         this.life.reset();
@@ -130,7 +134,7 @@ class Game {
         if (this.inProgress) {
             this.life.decrement();
             if (this.life.isAlive()) {
-                //countUp.scaleTickDuration(timerScaleFactor);
+                this.countUp.scaleTickDuration(0.90);
                 this.doNewCountUp();
             } else {
                 this.gameOver(GameOverCause.GAME_LOGIC);
@@ -142,7 +146,7 @@ class Game {
         console.log("Game#pause()");
 
         if (!this.paused && this.inProgress) {
-            //countUp.pause();
+            this.countUp.pause();
             //powerUpTimer.pause();
             this.paused = true;
 
@@ -154,7 +158,7 @@ class Game {
         console.log("Game#resume()");
 
         if (this.paused && this.inProgress) {
-            //countUp.resume();
+            this.countUp.resume();
             //powerUpTimer.resume();
             this.paused = false;
 
@@ -172,7 +176,12 @@ class Game {
         }
     }
 
-//endregion
+    //endregion
+
+    @subscribe(CountUpCompletedEvent)
+    onCountUpCompleted(ignored: CountUpCompletedEvent): void {
+        this.skipPiece();
+    }
 }
 
 class NewGameEvent extends BusEvent {

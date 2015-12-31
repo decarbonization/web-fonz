@@ -31,7 +31,7 @@ class Bus {
         for (var property in target) {
             //noinspection JSUnfilteredForInLoop
             var field: any = target[property];
-            if (field == null || typeof field !== 'object') {
+            if (field == null || !(field instanceof Object)) {
                 continue;
             }
             if (SubscribeTag in field) {
