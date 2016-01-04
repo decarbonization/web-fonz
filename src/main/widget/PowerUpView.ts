@@ -8,15 +8,15 @@ class PowerUpView extends ClickableView<HTMLDivElement> {
     }
 
     get enabled(): boolean {
-        return !this.hasClass(Button.DISABLED_CLASS);
+        return !this.hasClass(PowerUpView.DISABLED_CLASS);
     }
 
     set enabled(enabled: boolean) {
         this.clickable = enabled;
         if (enabled) {
-            this.removeClass(Button.DISABLED_CLASS);
+            this.removeClass(PowerUpView.DISABLED_CLASS);
         } else {
-            this.addClass(Button.DISABLED_CLASS);
+            this.addClass(PowerUpView.DISABLED_CLASS);
         }
     }
 

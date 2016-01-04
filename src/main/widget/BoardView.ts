@@ -13,15 +13,15 @@ class BoardView extends View<HTMLDivElement> {
     constructor(node: HTMLDivElement) {
         super(node);
 
-        var pies: NodeListOf<HTMLDivElement> = this.$es('.pie');
-        for (var i = 0, length = pies.length; i < length; i++) {
-            ((pieView) => {
-                pieView.tag = i;
-                pieView.onClick = this.onPieClicked.bind(this);
-                this.pieViews.push(pieView);
-            })(new PieView(pies[i]));
+        var piesNodes: NodeListOf<HTMLDivElement> = this.$es('.pie');
+        for (var i = 0, length = piesNodes.length; i < length; i++) {
+            var pieNode = piesNodes[i];
+            var pieView = new PieView(pieNode);
+            pieView.tag = +(pieNode.dataset['pieN']);
+            pieView.onClick = this.onPieClicked.bind(this);
+            this.pieViews.push(pieView);
         }
-        this.pieViews.sort((l, r) => l.className.localeCompare(r.className));
+        this.pieViews.sort((l, r) => l.tag - r.tag);
 
         var powerUpViewOnClick = this.onPowerUpClicked.bind(this);
         var powerUp2x = new PowerUpView(this.$e('.power-up-2x'));
