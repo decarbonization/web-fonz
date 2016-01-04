@@ -9,6 +9,8 @@
 ///<reference path="../state/Life.ts"/>
 ///<reference path="../state/Pie.ts"/>
 ///<reference path="../state/Score.ts"/>
+///<reference path="CountUp.ts"/>
+///<reference path="PowerUpTimer.ts"/>
 
 class Game {
     public life: Life;
@@ -16,6 +18,7 @@ class Game {
     public board: Board;
 
     private countUp: CountUp;
+    private powerUpTimer: PowerUpTimer;
 
     private pieceFactory: PieceFactory = new PieceFactory();
     private _inProgress: boolean = false;
@@ -28,20 +31,21 @@ class Game {
         this.board = new Board(bus);
 
         this.countUp = new CountUp(bus);
+        this.powerUpTimer = new PowerUpTimer(bus);
 
         bus.register(this);
     }
 
 
-    get inProgress():boolean {
+    get inProgress(): boolean {
         return this._inProgress;
     }
 
-    get paused():boolean {
+    get paused(): boolean {
         return this._paused;
     }
 
-    get upcomingPiece():UpcomingPiece {
+    get upcomingPiece(): UpcomingPiece {
         return this._upcomingPiece;
     }
 
@@ -66,7 +70,7 @@ class Game {
         this.pieceFactory.reset();
 
         this.countUp.stop();
-        //powerUpTimer.stop();
+        this.powerUpTimer.stop();
 
         this.life.reset();
         this.score.reset();
@@ -147,7 +151,7 @@ class Game {
 
         if (!this.paused && this.inProgress) {
             this.countUp.pause();
-            //powerUpTimer.pause();
+            this.powerUpTimer.pause();
             this.paused = true;
 
             this.bus.post(new PauseStateChangedEvent(true));
@@ -159,7 +163,7 @@ class Game {
 
         if (this.paused && this.inProgress) {
             this.countUp.resume();
-            //powerUpTimer.resume();
+            this.powerUpTimer.resume();
             this.paused = false;
 
             this.bus.post(new PauseStateChangedEvent(false));
