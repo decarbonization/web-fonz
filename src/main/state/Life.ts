@@ -1,39 +1,39 @@
 class Life {
-    static INITIAL_VALUE:number = 5;
+    static INITIAL_VALUE: number = 5;
 
-    private value:number = Life.INITIAL_VALUE;
+    private _value: number = Life.INITIAL_VALUE;
 
-    constructor(private bus:Bus) {
+    constructor(private bus: Bus) {
     }
 
-    getValue():number {
-        return this.value;
+    get value(): number {
+        return this._value;
     }
 
-    decrement():void {
-        if (this.value > 0) {
-            this.value--;
-            this.bus.post(new LifeChangedEvent(this.value));
+    decrement(): void {
+        if (this._value > 0) {
+            this._value--;
+            this.bus.post(new LifeChangedEvent(this._value));
         }
     }
 
-    increment():void {
-        this.value++;
-        this.bus.post(new LifeChangedEvent(this.value));
+    increment(): void {
+        this._value++;
+        this.bus.post(new LifeChangedEvent(this._value));
     }
 
-    isAlive():boolean {
-        return (this.value > 0);
+    isAlive(): boolean {
+        return (this._value > 0);
     }
 
-    reset():void {
-        this.value = Life.INITIAL_VALUE;
-        this.bus.post(new LifeChangedEvent(this.value));
+    reset(): void {
+        this._value = Life.INITIAL_VALUE;
+        this.bus.post(new LifeChangedEvent(this._value));
     }
 }
 
 class LifeChangedEvent extends BusValueEvent<number> {
-    constructor(value:number) {
+    constructor(value: number) {
         super(value);
     }
 }
