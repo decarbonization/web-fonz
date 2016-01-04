@@ -1,9 +1,12 @@
 ///<reference path="View.ts"/>
 ///<reference path="PieView.ts"/>
 ///<reference path="UpcomingPieceView.ts"/>
+///<reference path="PowerUpView.ts"/>
+
 
 class BoardView extends View<HTMLDivElement> {
     private pieViews: Array<PieView> = [];
+    private powerUpViews: Array<PowerUpView> = [];
     private upcomingPieceView: UpcomingPieceView;
     private _board: Board;
 
@@ -20,6 +23,20 @@ class BoardView extends View<HTMLDivElement> {
         }
         this.pieViews.sort((l, r) => l.className.localeCompare(r.className));
 
+        var powerUpViewOnClick = this.onPowerUpClicked.bind(this);
+        var powerUp2x = new PowerUpView(this.$e('.power-up-2x'));
+        powerUp2x.tag = PowerUp.MULTIPLY_SCORE;
+        powerUp2x.onClick = powerUpViewOnClick;
+        this.powerUpViews.push(powerUp2x);
+        var powerUpClear = new PowerUpView(this.$e('.power-up-clear'));
+        powerUpClear.tag = PowerUp.CLEAR_ALL;
+        powerUpClear.onClick = powerUpViewOnClick;
+        this.powerUpViews.push(powerUpClear);
+        var powerUpTimer = new PowerUpView(this.$e('.power-up-timer'));
+        powerUpTimer.tag = PowerUp.SLOW_DOWN_TIME;
+        powerUpTimer.onClick = powerUpViewOnClick;
+        this.powerUpViews.push(powerUpTimer);
+
         var upcomingNode: HTMLDivElement = this.$e('.upcoming');
         this.upcomingPieceView = new UpcomingPieceView(upcomingNode);
         this.upcomingPieceView.onClick = this.onUpcomingPieceClicked.bind(this);
@@ -34,9 +51,9 @@ class BoardView extends View<HTMLDivElement> {
             this.pieViews[i].pie = board.getPie(i);
         }
 
-        /*for (final PowerUp powerUp : PowerUp.values()) {
-            powerUpButtons.get(powerUp).setEnabled(board.hasPowerUp(powerUp));
-        }*/
+        this.powerUpViews.forEach(powerUpView => {
+            powerUpView.enabled = board.hasPowerUp(powerUpView.tag as PowerUp);
+        });
     }
 
     get board(): Board {
@@ -49,10 +66,10 @@ class BoardView extends View<HTMLDivElement> {
     
     set paused(isPaused: boolean) {
         this.upcomingPieceView.paused = isPaused;
-    
-        /*for (int i = 0, size = powerUpButtons.size(); i < size; i++) {
-            powerUpButtons.valueAt(i).setClickable(!isPaused);
-        }*/
+
+        this.powerUpViews.forEach(powerUpView => {
+            powerUpView.clickable = !isPaused;
+        });
         this.pieViews.forEach(pieView => {
             pieView.clickable = !isPaused;
         });
@@ -63,22 +80,22 @@ class BoardView extends View<HTMLDivElement> {
     }
 
     setPowerUpAvailable(powerUp: PowerUp, available: boolean): void {
-        //powerUpButtons.get(powerUp).setEnabled(available);
+        this.powerUpViews[powerUp].enabled = available;
     }
 
     setPowerUpActive(powerUp: PowerUp, active: boolean): void {
-        /*final PowerUpButton powerUpButton = powerUpButtons.get(powerUp);
+        var powerUpButton: PowerUpView = this.powerUpViews[powerUp];
         if (active) {
-            powerUpButton.setTick(PowerUpTimer.STANDARD_NUMBER_TICKS);
-            powerUpButton.setClickable(false);
+            powerUpButton.tick = PowerUpTimer.STANDARD_NUMBER_TICKS;
+            powerUpButton.clickable = false;
         } else {
-            powerUpButton.setTick(0);
-            powerUpButton.setClickable(true);
-        }*/
+            powerUpButton.tick = 0;
+            powerUpButton.clickable = true;
+        }
     }
 
     setPowerUpTick(powerUp: PowerUp, tick: number): void {
-        //powerUpButtons.get(powerUp).setTick(tick);
+        this.powerUpViews[powerUp].tick = tick;
     }
 
     private onPieClicked(sender: PieView): void {
@@ -91,6 +108,12 @@ class BoardView extends View<HTMLDivElement> {
     private onUpcomingPieceClicked(): void {
         if (this.listener != null) {
             this.listener.onUpcomingPieClicked();
+        }
+    }
+
+    private onPowerUpClicked(sender: PowerUpView): void {
+        if (this.listener != null) {
+            this.listener.onPowerUpClicked(sender.tag as PowerUp);
         }
     }
 }
