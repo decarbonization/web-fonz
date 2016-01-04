@@ -54,13 +54,19 @@
 
 //noinspection CssOptimizeSimilarProperties
 .upcoming {
+  position: relative;
   @include background-ref("background_pie");
   background-repeat: no-repeat;
   background-position: center center;
   width: $upcoming_width;
   height: $upcoming_height;
-  padding: $upcoming_padding;
   margin: $gap_large auto;
+}
+
+.upcoming > * {
+  position: absolute;
+  margin-top: $upcoming_inset;
+  margin-left: $upcoming_inset;
 }
 
 .board {
@@ -73,4 +79,12 @@
   display: table-cell;
   width: 33%;
   vertical-align: middle;
+}
+
+.board .pie {
+  position: relative;
+}
+
+.board .pie > * {
+  position: absolute;
 }

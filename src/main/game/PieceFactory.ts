@@ -72,7 +72,7 @@ class PieceFactory {
             for (var i = 0; i < PieceFactory.COUNT_PER_COLOR; i++) {
                 this.pieces.push(color);
             }
-        });
+        }, Piece.ORANGE);
     }
 
     private populateSlots(): void {

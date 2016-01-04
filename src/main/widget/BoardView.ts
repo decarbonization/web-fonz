@@ -1,28 +1,37 @@
 ///<reference path="View.ts"/>
 ///<reference path="PieView.ts"/>
+///<reference path="UpcomingPieceView.ts"/>
 
 class BoardView extends View<HTMLDivElement> {
     private pieViews: Array<PieView> = [];
+    private upcomingPieceView: UpcomingPieceView;
     private board: Board;
 
     constructor(node: HTMLDivElement) {
         super(node);
 
-        var pies = node.querySelectorAll('.pie');
+        var pies: NodeListOf<HTMLDivElement> = this.$es('.pie');
         for (var i = 0, length = pies.length; i < length; i++) {
-            this.pieViews.push(new PieView(pies[i] as HTMLDivElement));
+            ((pieView) => {
+                pieView.tag = i;
+                pieView.onClick = this.onPieClicked.bind(this);
+                this.pieViews.push(pieView);
+            })(new PieView(pies[i]));
         }
-        this.pieViews.sort((l, r) => {
-            return l.node.className.localeCompare(r.node.className);
-        });
+        this.pieViews.sort((l, r) => l.className.localeCompare(r.className));
+
+        var upcomingNode: HTMLDivElement = this.$e('.upcoming');
+        this.upcomingPieceView = new UpcomingPieceView(upcomingNode);
+        this.upcomingPieceView.onClick = this.onUpcomingPieceClicked.bind(this);
     }
 
+    public listener: BoardViewListener = null;
 
     setBoard(board: Board): void {
         this.board = board;
 
         for (var i = 0; i < Board.NUMBER_PIES; i++) {
-            this.pieViews[i].setPie(board.getPie(i));
+            this.pieViews[i].pie = board.getPie(i);
         }
 
         /*for (final PowerUp powerUp : PowerUp.values()) {
@@ -31,18 +40,18 @@ class BoardView extends View<HTMLDivElement> {
     }
 
     setUpcomingPiece(upcomingPiece: UpcomingPiece): void {
-        //upcomingPieceView.setUpcomingPiece(upcomingPiece);
+        this.upcomingPieceView.upcomingPiece = upcomingPiece;
     }
     
     setPaused(isPaused: boolean): void {
-        /*upcomingPieceView.setPaused(isPaused);
+        this.upcomingPieceView.paused = isPaused;
     
-        for (int i = 0, size = powerUpButtons.size(); i < size; i++) {
+        /*for (int i = 0, size = powerUpButtons.size(); i < size; i++) {
             powerUpButtons.valueAt(i).setClickable(!isPaused);
-        }
-        for (final PieView pieView : pieViews) {
-            pieView.setClickable(!isPaused);
         }*/
+        this.pieViews.forEach(pieView => {
+            pieView.clickable = !isPaused;
+        });
     }
     
     setPowerUpAvailable(powerUp: PowerUp, available: boolean): void {
@@ -65,6 +74,25 @@ class BoardView extends View<HTMLDivElement> {
     }
     
     setTick(tick: number) {
-        //upcomingPieceView.setTick(tick);
+        this.upcomingPieceView.setTick(tick);
     }
+
+    private onPieClicked(sender: PieView): void {
+        if (this.listener != null) {
+            var slot = sender.tag as number;
+            this.listener.onPieClicked(slot, sender.pie);
+        }
+    }
+
+    private onUpcomingPieceClicked(): void {
+        if (this.listener != null) {
+            this.listener.onUpcomingPieClicked();
+        }
+    }
+}
+
+interface BoardViewListener {
+    onUpcomingPieClicked(): void;
+    onPieClicked(pieSlot: number, pie: Pie);
+    onPowerUpClicked(powerUp: PowerUp);
 }

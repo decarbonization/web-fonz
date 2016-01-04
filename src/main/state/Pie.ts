@@ -1,3 +1,5 @@
+///<reference path="../events/BusEvent.ts"/>
+
 class Pie {
     private slots: Array<Piece> = [];
     private occupiedSlots: number = 0;
@@ -65,6 +67,8 @@ class Pie {
     }
 }
 
-class PieChangedEvent {
-    constructor(public pie: Pie) {}
+class PieChangedEvent extends BusEvent {
+    constructor(public pie: Pie) {
+        super();
+    }
 }

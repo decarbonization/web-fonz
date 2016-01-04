@@ -1,6 +1,6 @@
-///<reference path="View.ts"/>
+///<reference path="ClickableView.ts"/>
 
-class Button extends View<HTMLButtonElement> {
+class Button extends ClickableView<HTMLButtonElement> {
     static DISABLED_CLASS = 'button-disabled';
 
     static $(selector: string): Button {
@@ -14,21 +14,6 @@ class Button extends View<HTMLButtonElement> {
 
     constructor(node: HTMLButtonElement) {
         super(node);
-
-        this.attach('click', this.onClickEvent.bind(this));
-    }
-
-    public onClick: (Button) => void = null;
-
-    onClickEvent(): boolean {
-        if (this.enabled) {
-            if (this.onClick) {
-                this.onClick(this);
-            }
-            return true;
-        } else {
-            return false;
-        }
     }
 
     get enabled(): boolean {
@@ -36,6 +21,7 @@ class Button extends View<HTMLButtonElement> {
     }
 
     set enabled(enabled: boolean) {
+        this.clickable = enabled;
         if (enabled) {
             this.removeClass(Button.DISABLED_CLASS);
         } else {

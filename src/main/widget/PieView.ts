@@ -1,8 +1,10 @@
 ///<reference path="View.ts"/>
+///<reference path="../state/Pie.ts"/>
+///<reference path="../util/Bus.ts"/>
 
-class PieView extends View<HTMLDivElement> {
+class PieView extends ClickableView<HTMLDivElement> {
     private slots: Array<HTMLDivElement> = [];
-    private pie: Pie;
+    private _pie: Pie;
 
     constructor(node: HTMLDivElement) {
         super(node);
@@ -14,15 +16,15 @@ class PieView extends View<HTMLDivElement> {
         });
     }
 
-    setPie(pie: Pie): void {
-        if (this.pie != null) {
-            var bus = this.pie.bus;
+    set pie(pie) {
+        if (this._pie != null) {
+            var bus = this._pie.bus;
             if (bus != null) {
                 bus.unregister(this);
             }
         }
 
-        this.pie = pie;
+        this._pie = pie;
 
         if (pie != null) {
             var bus: Bus = pie.bus;
@@ -34,8 +36,13 @@ class PieView extends View<HTMLDivElement> {
         this.update();
     }
 
+
+    get pie(): Pie {
+        return this._pie;
+    }
+
     private update(): void {
-        if (this.pie != null) {
+        if (this._pie != null) {
             Slots.forEach(slot => {
                 var node = this.slots[slot];
                 var piece = this.pie.getPiece(slot);
@@ -49,8 +56,8 @@ class PieView extends View<HTMLDivElement> {
     }
 
     @subscribe(PieChangedEvent)
-    onPieChanged(event: PieChangedEvent) {
-        if (event.pie == this.pie) {
+    onPieChanged(event: PieChangedEvent): void {
+        if (event.pie == this._pie) {
             this.update();
         }
     }

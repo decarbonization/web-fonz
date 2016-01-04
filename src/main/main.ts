@@ -2,11 +2,10 @@
 ///<reference path="widget/StatsView.ts"/>
 ///<reference path="widget/BoardView.ts"/>
 
-
 ///<reference path="game/Game.ts"/>
 ///<reference path="util/Bus.ts"/>
 
-class Fonz {
+class Fonz implements BoardViewListener {
     bus: Bus = new Bus();
     game: Game;
 
@@ -32,6 +31,7 @@ class Fonz {
 
         var gamePaused = this.game.paused;
         this.boardView = new BoardView($e('.board'));
+        this.boardView.listener = this;
         this.boardView.setBoard(this.game.board);
         this.boardView.setUpcomingPiece(this.game.upcomingPiece);
         this.boardView.setPaused(gamePaused);
@@ -136,6 +136,31 @@ class Fonz {
             }
         } else {
             this.game.newGame();
+        }
+    }
+
+
+    onUpcomingPieClicked(): void {
+        this.game.skipPiece();
+    }
+
+    onPieClicked(pieSlot: number, pie: Pie) {
+        this.game.tryPlaceCurrentPiece(pie);
+    }
+
+    onPowerUpClicked(powerUp: PowerUp) {
+        switch (powerUp) {
+            case PowerUp.MULTIPLY_SCORE:
+                this.game.multiplyScore();
+                break;
+
+            case PowerUp.CLEAR_ALL:
+                this.game.clearAll();
+                break;
+
+            case PowerUp.SLOW_DOWN_TIME:
+                this.game.slowDownTime();
+                break;
         }
     }
 }

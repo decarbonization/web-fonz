@@ -27,17 +27,27 @@ class Bus {
         });
     }
 
-    register(target: any): void {
+    register(target: any, logProperties: boolean = false): void {
         for (var property in target) {
             //noinspection JSUnfilteredForInLoop
             var field: any = target[property];
+            if (logProperties) {
+                console.debug("found '" + property + "' on '" + target + "'");
+            }
             if (field == null || !(field instanceof Object)) {
+                if (logProperties) {
+                    console.debug("skipping '" + property + "' on '" + target + "'");
+                }
                 continue;
             }
             if (SubscribeTag in field) {
                 var tag: Function = field[SubscribeTag];
                 var callback = field.bind(target);
                 this.subscribers.push(new Subscriber(target, tag, callback));
+
+                if (logProperties) {
+                    console.debug("registering '" + property + "' on " + target);
+                }
             }
         }
     }
