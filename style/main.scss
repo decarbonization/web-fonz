@@ -15,7 +15,43 @@ body {
 
 @import "board";
 
+.game-stats {
+  margin-top: $gap_outer;
+  margin-bottom: $gap_medium;
+
+  #left-stats {
+    float: left;
+    text-align: left;
+  }
+
+  #right-stats {
+    float: right;
+    text-align: right;
+  }
+}
+
+.game-stats:after {
+  visibility: hidden;
+  display: block;
+  content: "";
+  clear: both;
+  height: 0;
+}
+
+.game-stat-title {
+  display: block;
+  font-size: 1.4em;
+  font-weight: bold;
+  margin-bottom: $gap_small;
+}
+
+.game-stat {
+  font-size: 1.1em;
+}
+
 .game-controls {
+  margin-top: $gap_medium;
+  margin-bottom: $gap_outer;
   text-align: center;
 }
 
@@ -31,6 +67,8 @@ body {
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
+  margin: 0 $gap_small;
+  min-width: 100px;
 }
 
 .game-controls button:active {

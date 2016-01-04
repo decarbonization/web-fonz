@@ -2,6 +2,8 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
     <title>Fonz</title>
     <link title="Main" rel="stylesheet" href="style/main.css">
 
@@ -16,10 +18,14 @@
 <body>
     <div id="main">
         <div class="game-stats">
-            <span class="game-stat-title">Lives</span>
-            <span id="game-stat-lives" class="game-stat">0</span>
-            <span class="game-stat-title">Score</span>
-            <span id="game-stat-score" class="game-stat">0</span>
+            <div id="left-stats">
+                <span class="game-stat-title">Lives</span>
+                <span id="game-stat-lives" class="game-stat">0</span>
+            </div>
+            <div id="right-stats">
+                <span class="game-stat-title">Score</span>
+                <span id="game-stat-score" class="game-stat">0</span>
+            </div>
         </div>
         <div class="board">
             <div class="column">
