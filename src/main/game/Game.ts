@@ -17,8 +17,8 @@ class Game {
     public score: Score;
     public board: Board;
 
-    private countUp: CountUp;
-    private powerUpTimer: PowerUpTimer;
+    public countUp: CountUp;
+    public powerUpTimer: PowerUpTimer;
 
     private pieceFactory: PieceFactory = new PieceFactory();
     private _inProgress: boolean = false;
@@ -45,6 +45,10 @@ class Game {
         return this._paused;
     }
 
+    testSetUpcomingPiece(piece: UpcomingPiece): void {
+        this._upcomingPiece = piece;
+    }
+
     get upcomingPiece(): UpcomingPiece {
         return this._upcomingPiece;
     }
@@ -55,8 +59,8 @@ class Game {
     doNewCountUp(): void {
         console.log("Game#doNewCountUp()");
 
-        this.inProgress = true;
-        this.upcomingPiece = this.pieceFactory.generateUpcomingPiece();
+        this._inProgress = true;
+        this._upcomingPiece = this.pieceFactory.generateUpcomingPiece();
         console.log("Game: Upcoming piece " + this.upcomingPiece);
 
         this.countUp.start();
@@ -76,9 +80,9 @@ class Game {
         this.score.reset();
         this.board.reset();
 
-        this.inProgress = false;
-        this.paused = false;
-        this.upcomingPiece = null;
+        this._inProgress = false;
+        this._paused = false;
+        this._upcomingPiece = null;
     }
 
     //endregion
@@ -122,7 +126,7 @@ class Game {
                     result = PlacementResult.PIE_COMPLETED_MULTI_COLOR;
                 }
 
-                //this.countUp.scaleTickDuration(timerScaleFactor);
+                this.countUp.scaleTickDuration(CountUp.DEFAULT_SCALE_FACTOR);
             }
 
             this.doNewCountUp();
@@ -138,7 +142,7 @@ class Game {
         if (this.inProgress) {
             this.life.decrement();
             if (this.life.isAlive()) {
-                this.countUp.scaleTickDuration(0.90);
+                this.countUp.scaleTickDuration(CountUp.DEFAULT_SCALE_FACTOR);
                 this.doNewCountUp();
             } else {
                 this.gameOver(GameOverCause.GAME_LOGIC);
@@ -152,7 +156,7 @@ class Game {
         if (!this.paused && this.inProgress) {
             this.countUp.pause();
             this.powerUpTimer.pause();
-            this.paused = true;
+            this._paused = true;
 
             this.bus.post(new PauseStateChangedEvent(true));
         }
@@ -164,7 +168,7 @@ class Game {
         if (this.paused && this.inProgress) {
             this.countUp.resume();
             this.powerUpTimer.resume();
-            this.paused = false;
+            this._paused = false;
 
             this.bus.post(new PauseStateChangedEvent(false));
         }

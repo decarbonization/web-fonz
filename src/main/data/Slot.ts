@@ -11,8 +11,8 @@ class Slots {
     static FIRST = Slot.TOP_LEFT;
     static COUNT = 6;
 
-    static forEach(f: (Slot) => void): void {
-        for (var slot = Slots.FIRST; slot < Slots.COUNT; slot++) {
+    static forEach(f: (Slot) => void, first: Slot = Slots.FIRST): void {
+        for (var slot = first; slot < Slots.COUNT; slot++) {
             f(slot);
         }
     }

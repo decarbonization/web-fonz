@@ -10,7 +10,7 @@ class PowerUps {
     static forSlot(slot: Slot): PowerUp {
         switch (slot) {
             case Slot.TOP_LEFT:
-                return PowerUp.SLOW_DOWN_TIME;
+                return PowerUp.MULTIPLY_SCORE;
             case Slot.TOP_CENTER:
                 return PowerUp.CLEAR_ALL;
             case Slot.TOP_RIGHT:

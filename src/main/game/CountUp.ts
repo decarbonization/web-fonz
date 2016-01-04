@@ -6,7 +6,7 @@
 class CountUp extends Timer {
     public static NUMBER_TICKS = 10;
     public static MIN_TICK_DURATION: Milliseconds = 450;
-    public static DEFAULT_SCALE_FACTOR = 0.95;
+    public static DEFAULT_SCALE_FACTOR = 0.90;
 
     constructor(private bus: Bus) {
         super();
