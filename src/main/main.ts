@@ -26,20 +26,20 @@ class Fonz implements BoardViewListener {
         helpButton.onClick = this.onHelpClicked.bind(this);
 
         this.statsView = new StatsView($e('.game-stats'));
-        this.statsView.setLife(this.game.life.value);
-        this.statsView.setScore(this.game.score.value);
+        this.statsView.life = this.game.life.value;
+        this.statsView.score = this.game.score.value;
 
         var gamePaused = this.game.paused;
         this.boardView = new BoardView($e('.board'));
         this.boardView.listener = this;
-        this.boardView.setBoard(this.game.board);
-        this.boardView.setUpcomingPiece(this.game.upcomingPiece);
-        this.boardView.setPaused(gamePaused);
+        this.boardView.board = this.game.board;
+        this.boardView.upcomingPiece = this.game.upcomingPiece;
+        this.boardView.paused = gamePaused;
 
         this.gameButton = Button.$('#game-control-game');
         this.gameButton.onClick = this.onGameClicked.bind(this);
         if (gamePaused) {
-            this.boardView.setTick(this.game.countUp.currentTick);
+            this.boardView.tick = this.game.countUp.currentTick;
             this.gameButton.text = "Resume";
         }
     }
@@ -48,17 +48,17 @@ class Fonz implements BoardViewListener {
 
     @subscribe(LifeChangedEvent)
     onLifeChanged(change: LifeChangedEvent): void {
-        this.statsView.setLife(change.getValue());
+        this.statsView.life = change.getValue();
     }
 
     @subscribe(ScoreChangedEvent)
     onScoreChanged(change: ScoreChangedEvent): void {
-        this.statsView.setScore(change.getValue());
+        this.statsView.score = change.getValue();
     }
 
     @subscribe(UpcomingPieceAvailableEvent)
     onUpcomingPieceAvailable(ignored: UpcomingPieceAvailableEvent): void {
-        this.boardView.setUpcomingPiece(this.game.upcomingPiece);
+        this.boardView.upcomingPiece = this.game.upcomingPiece;
     }
 
     @subscribe(PowerUpChangedEvent)
@@ -84,7 +84,7 @@ class Fonz implements BoardViewListener {
     @subscribe(PauseStateChangedEvent)
     onPauseStateChanged(change: PauseStateChangedEvent): void {
         var paused = change.getValue();
-        this.boardView.setPaused(paused);
+        this.boardView.paused = paused;
         if (paused) {
             this.gameButton.text = "Resume";
         } else {
@@ -94,22 +94,22 @@ class Fonz implements BoardViewListener {
 
     @subscribe(CountUpTickedEvent)
     onCountUpTicked(tick: CountUpTickedEvent): void {
-        this.boardView.setTick(tick.getValue());
+        this.boardView.tick = tick.getValue();
     }
 
     @subscribe(NewGameEvent)
     onNewGame(ignored: NewGameEvent): void {
         this.gameButton.text = "Pause";
-        this.boardView.setTick(1);
+        this.boardView.tick = 1;
     }
 
     @subscribe(GameOverEvent)
     onGameOver(event: GameOverEvent): void {
         this.gameButton.text = "Start";
 
-        this.boardView.setUpcomingPiece(null);
-        this.boardView.setTick(0);
-        this.boardView.setPaused(false);
+        this.boardView.upcomingPiece = null;
+        this.boardView.tick = 0;
+        this.boardView.paused = false;
         PowerUps.forEach(powerUp => {
             this.boardView.setPowerUpAvailable(powerUp, false);
         });

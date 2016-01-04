@@ -5,7 +5,7 @@
 class BoardView extends View<HTMLDivElement> {
     private pieViews: Array<PieView> = [];
     private upcomingPieceView: UpcomingPieceView;
-    private board: Board;
+    private _board: Board;
 
     constructor(node: HTMLDivElement) {
         super(node);
@@ -27,8 +27,8 @@ class BoardView extends View<HTMLDivElement> {
 
     public listener: BoardViewListener = null;
 
-    setBoard(board: Board): void {
-        this.board = board;
+    set board(board: Board) {
+        this._board = board;
 
         for (var i = 0; i < Board.NUMBER_PIES; i++) {
             this.pieViews[i].pie = board.getPie(i);
@@ -39,11 +39,15 @@ class BoardView extends View<HTMLDivElement> {
         }*/
     }
 
-    setUpcomingPiece(upcomingPiece: UpcomingPiece): void {
+    get board(): Board {
+        return this._board;
+    }
+
+    set upcomingPiece(upcomingPiece: UpcomingPiece) {
         this.upcomingPieceView.upcomingPiece = upcomingPiece;
     }
     
-    setPaused(isPaused: boolean): void {
+    set paused(isPaused: boolean) {
         this.upcomingPieceView.paused = isPaused;
     
         /*for (int i = 0, size = powerUpButtons.size(); i < size; i++) {
@@ -53,11 +57,15 @@ class BoardView extends View<HTMLDivElement> {
             pieView.clickable = !isPaused;
         });
     }
-    
+
+    set tick(tick: number) {
+        this.upcomingPieceView.setTick(tick);
+    }
+
     setPowerUpAvailable(powerUp: PowerUp, available: boolean): void {
         //powerUpButtons.get(powerUp).setEnabled(available);
     }
-    
+
     setPowerUpActive(powerUp: PowerUp, active: boolean): void {
         /*final PowerUpButton powerUpButton = powerUpButtons.get(powerUp);
         if (active) {
@@ -68,13 +76,9 @@ class BoardView extends View<HTMLDivElement> {
             powerUpButton.setClickable(true);
         }*/
     }
-    
+
     setPowerUpTick(powerUp: PowerUp, tick: number): void {
         //powerUpButtons.get(powerUp).setTick(tick);
-    }
-    
-    setTick(tick: number) {
-        this.upcomingPieceView.setTick(tick);
     }
 
     private onPieClicked(sender: PieView): void {
