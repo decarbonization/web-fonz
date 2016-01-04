@@ -182,6 +182,74 @@ class Game {
 
     //endregion
 
+    //region Power Ups
+
+    clearAll(): boolean {
+        console.log("Game#clearAll()");
+
+        if (this.inProgress && this.board.usePowerUp(PowerUp.CLEAR_ALL)) {
+            for (var i = 0; i < Board.NUMBER_PIES; i++) {
+                this.board.getPie(i).reset();
+            }
+            this.doNewCountUp();
+
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    multiplyScore(): boolean {
+        console.log("Game#useScoreMultiplier()");
+
+        if (this.inProgress && this.board.hasPowerUp(PowerUp.MULTIPLY_SCORE) &&
+            !this.powerUpTimer.isPending(PowerUp.MULTIPLY_SCORE)) {
+            this.score.multiplier = 2.0;
+            this.powerUpTimer.schedulePowerUp(PowerUp.MULTIPLY_SCORE,
+                                              PowerUpTimer.STANDARD_NUMBER_TICKS);
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    slowDownTime(): boolean {
+        console.log("Game#slowDownTime()");
+
+        if (this.inProgress && this.board.hasPowerUp(PowerUp.SLOW_DOWN_TIME) &&
+            !this.powerUpTimer.isPending(PowerUp.SLOW_DOWN_TIME)) {
+            this.countUp.scaleTickDuration(2.0);
+            this.powerUpTimer.schedulePowerUp(PowerUp.SLOW_DOWN_TIME,
+                                              PowerUpTimer.STANDARD_NUMBER_TICKS);
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    @subscribe(PowerUpExpiredEvent)
+    onPowerUpExpired(expiration: PowerUpExpiredEvent): void {
+        var powerUp = expiration.getValue();
+        console.log("Game#onPowerUpExpired(" + powerUp + ")");
+
+        this.board.usePowerUp(powerUp);
+        switch (powerUp) {
+            case PowerUp.MULTIPLY_SCORE:
+                this.score.multiplier = 1.0;
+                break;
+
+            case PowerUp.CLEAR_ALL:
+                // Do nothing.
+                break;
+
+            case PowerUp.SLOW_DOWN_TIME:
+                this.countUp.scaleTickDuration(0.5);
+                break;
+        }
+    }
+
+//endregion
+
     @subscribe(CountUpCompletedEvent)
     onCountUpCompleted(ignored: CountUpCompletedEvent): void {
         this.skipPiece();
