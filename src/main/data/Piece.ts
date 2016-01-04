@@ -13,4 +13,19 @@ class Pieces {
             f(i);
         }
     }
+    static getClassPart(piece: Piece): string {
+        switch (piece) {
+            case Piece.ORANGE:
+                return 'orange';
+            case Piece.GREEN:
+                return 'green';
+            case Piece.PURPLE:
+                return 'purple';
+            default:
+                return '';
+        }
+    }
+    static getClass(slot: Slot, piece: Piece): string {
+        return 'piece_' + Slots.getClassPart(slot) + '_' + Pieces.getClassPart(piece);
+    }
 }

@@ -32,6 +32,10 @@ abstract class Timer {
         this._currentTick = 0;
     }
 
+    get currentTick(): number {
+        return this._currentTick;
+    }
+
     public get isRunning(): boolean {
         return this._running;
     }

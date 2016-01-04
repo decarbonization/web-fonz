@@ -16,4 +16,22 @@ class Slots {
             f(slot);
         }
     }
+    static getClassPart(slot: Slot): string {
+        switch (slot) {
+            case Slot.TOP_LEFT:
+                return 'top_left';
+            case Slot.TOP_CENTER:
+                return 'top_center';
+            case Slot.TOP_RIGHT:
+                return 'top_right';
+            case Slot.BOTTOM_LEFT:
+                return 'bottom_left';
+            case Slot.BOTTOM_CENTER:
+                return 'bottom_center';
+            case Slot.BOTTOM_RIGHT:
+                return 'bottom_right';
+            default:
+                return '';
+        }
+    }
 }

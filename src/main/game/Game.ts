@@ -277,7 +277,7 @@ class GameOverEvent extends BusEvent {
 class UpcomingPieceAvailableEvent extends BusEvent {
 }
 
-class PauseStateChangedEvent extends BusValueEvent<Boolean> {
+class PauseStateChangedEvent extends BusValueEvent<boolean> {
     constructor(value: boolean) {
         super(value);
     }

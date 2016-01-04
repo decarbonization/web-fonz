@@ -19,4 +19,10 @@ class PowerUps {
                 return null;
         }
     }
+
+    static forEach(f: (PowerUp) => void): void {
+        for (var p = PowerUp.MULTIPLY_SCORE; p <= PowerUp.SLOW_DOWN_TIME; p++) {
+            f(p);
+        }
+    }
 }

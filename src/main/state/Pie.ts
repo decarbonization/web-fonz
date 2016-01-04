@@ -2,7 +2,7 @@ class Pie {
     private slots: Array<Piece> = [];
     private occupiedSlots: number = 0;
 
-    constructor(private bus: Bus) {
+    constructor(public bus: Bus) {
         Slots.forEach((slot) => {
             this.slots[slot] = Piece.EMPTY;
         });
