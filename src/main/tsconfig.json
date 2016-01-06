@@ -5,7 +5,8 @@
     "sourceMap": true,
     "outFile": "../../js/app.js",
     "declaration": true,
-    "experimentalDecorators": true
+    "experimentalDecorators": true,
+    "removeComments": true
   },
   "exclude": [
     "node_modules"
