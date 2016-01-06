@@ -1,25 +1,35 @@
 @import "dimensions";
 @import "images";
 
-@mixin piece-class($vertical, $horizontal, $color) {
+@mixin piece-sprite-class($name, $offsetX, $offsetY) {
   //noinspection CssOptimizeSimilarProperties
-  .piece_#{$vertical}_#{$horizontal}_#{$color} {
-    @include background-ref("piece_#{$vertical}_#{$horizontal}_#{$color}");
+  .#{$name} {
+    @include background-ref("pieces");
     background-repeat: no-repeat;
-    background-position: center center;
+    background-position: $offsetX $offsetY;
     width: $pie_width;
     height: $pie_height;
   }
 }
 
-@mixin piece-class-set($color) {
-  @include piece-class('top', 'left', $color);
-  @include piece-class('top', 'center', $color);
-  @include piece-class('top', 'right', $color);
-  @include piece-class('bottom', 'left', $color);
-  @include piece-class('bottom', 'center', $color);
-  @include piece-class('bottom', 'right', $color);
-}
+@include piece-sprite-class(piece_bottom_center_green, 0, 0);
+@include piece-sprite-class(piece_bottom_center_orange, -92px, 0);
+@include piece-sprite-class(piece_bottom_center_purple, -184px, 0);
+@include piece-sprite-class(piece_bottom_left_green, -276px, 0);
+@include piece-sprite-class(piece_bottom_left_orange, 0, -92px);
+@include piece-sprite-class(piece_bottom_left_purple, -92px, -92px);
+@include piece-sprite-class(piece_bottom_right_green, -184px, -92px);
+@include piece-sprite-class(piece_bottom_right_orange, -276px, -92px);
+@include piece-sprite-class(piece_bottom_right_purple, 0, -184px);
+@include piece-sprite-class(piece_top_center_green, -92px, -184px);
+@include piece-sprite-class(piece_top_center_orange, -184px, -184px);
+@include piece-sprite-class(piece_top_center_purple, -276px, -184px);
+@include piece-sprite-class(piece_top_left_green, 0, -276px);
+@include piece-sprite-class(piece_top_left_orange, -92px, -276px);
+@include piece-sprite-class(piece_top_left_purple, -184px, -276px);
+@include piece-sprite-class(piece_top_right_green, -276px, -276px);
+@include piece-sprite-class(piece_top_right_orange, -368px, 0);
+@include piece-sprite-class(piece_top_right_purple, -368px, -92px);
 
 @mixin power-up-class($name) {
   //noinspection CssOptimizeSimilarProperties
@@ -43,10 +53,6 @@
   padding: $pie_padding;
   margin: $gap_large auto;
 }
-
-@include piece-class-set('green');
-@include piece-class-set('orange');
-@include piece-class-set('purple');
 
 @include power-up-class('2x');
 @include power-up-class('clear');
