@@ -30,9 +30,11 @@ require 'socket'
 
 TS_PROJECTS = ['src/main', 'src/test']
 SASS_PROJECTS = ['style']
-CLEAN_DIRS = ['js', '.sass-cache']
+CLEAN_DIRS = ['js', '.sass-cache', 'dist']
 CLEAN_GLOBS = ['style/*.css.map', 'style/*.css']
+
 PACKAGE_DEST = 'dist/'
+PACKAGE_EXCLUDE = ['style/board.css', 'style/images.css', 'style/dimensions.css', 'js/test.js']
 
 COMMANDS = {}
 COMMAND_DESCRIPTIONS = {}
@@ -154,7 +156,15 @@ COMMANDS['package'] = lambda do
   begin_task "Copying js"
   js_dest = File::join(PACKAGE_DEST, "js")
   FileUtils::rm_r(js_dest) if Dir::exist? js_dest
-  FileUtils::cp_r("js", js_dest)
+  Dir::mkdir(js_dest)
+  
+  Dir["js/*.js"].each do |file|
+    next if PACKAGE_EXCLUDE.include? file
+    
+    file_dest = File::join(js_dest, File::basename(file))
+    begin_task "Copying '#{file}' to '#{file_dest}"
+    FileUtils::cp(file, file_dest)
+  end
   
   begin_task "Copying css"
   style_dest = File::join(PACKAGE_DEST, "style")
@@ -162,9 +172,11 @@ COMMANDS['package'] = lambda do
   Dir::mkdir(style_dest)
   
   Dir["style/*.css"].each do |file|
+    next if PACKAGE_EXCLUDE.include? file
+    
     file_dest = File::join(style_dest, File::basename(file))
     begin_task "Copying '#{file}' to '#{file_dest}"
-    FileUtils::cp(file, style_dest)
+    FileUtils::cp(file, file_dest)
   end
   
   begin_task "Copying images"
