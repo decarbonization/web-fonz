@@ -63,7 +63,7 @@ class BoardView extends View<HTMLDivElement> {
         powerUpTimer.onClick = powerUpViewOnClick;
         this.powerUpViews.push(powerUpTimer);
 
-        var upcomingNode: HTMLDivElement = this.$e('.upcoming');
+        var upcomingNode: HTMLCanvasElement = this.$e('.upcoming-timer');
         this.upcomingPieceView = new UpcomingPieceView(upcomingNode);
         this.upcomingPieceView.onClick = this.onUpcomingPieceClicked.bind(this);
     }
@@ -102,7 +102,7 @@ class BoardView extends View<HTMLDivElement> {
     }
 
     set tick(tick: number) {
-        this.upcomingPieceView.setTick(tick);
+        this.upcomingPieceView.tick = tick;
     }
 
     setPowerUpAvailable(powerUp: PowerUp, available: boolean): void {

@@ -86,7 +86,7 @@
 @include power-up-class('timer');
 
 //noinspection CssOptimizeSimilarProperties
-.upcoming {
+.upcoming-parent {
   position: relative;
   @include background-ref("background_pie");
   background-repeat: no-repeat;
@@ -96,7 +96,12 @@
   margin: $gap_large auto;
 }
 
-.upcoming > * {
+.upcoming-parent .upcoming-timer {
+  display: block;
+  position: absolute;
+}
+
+.upcoming-parent #upcoming-piece {
   position: absolute;
   margin-top: $upcoming_inset;
   margin-left: $upcoming_inset;

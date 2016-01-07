@@ -25,18 +25,23 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-///<reference path="View.ts"/>
+///<reference path="CanvasView.ts"/>
 
-class UpcomingPieceView extends ClickableView<HTMLDivElement> {
+class UpcomingPieceView extends CanvasView {
+    private static DEG_START = 0;
+    private static DEG_END = 360 * CanvasView.DEG_TO_RAD;
+    private static STROKE_WIDTH = 2;
+    private static STROKE_COLOR = "#1E88E5";
+
     private _upcomingPiece: UpcomingPiece = null;
     private _paused: boolean = false;
     private _pieceNode: HTMLDivElement;
+    private _tick = 0;
 
-    constructor(node: HTMLDivElement) {
+    constructor(node: HTMLCanvasElement) {
         super(node);
 
-        this._pieceNode = document.createElement('div');
-        node.appendChild(this._pieceNode);
+        this._pieceNode = node.parentElement.querySelector('#upcoming-piece') as HTMLDivElement;
     }
 
 
@@ -61,13 +66,41 @@ class UpcomingPieceView extends ClickableView<HTMLDivElement> {
         this._paused = paused;
 
         if (paused) {
-            this._pieceNode.style.visibility = 'none';
+            this._pieceNode.style.display = 'none';
         } else {
-            this._pieceNode.style.visibility = 'block';
+            this._pieceNode.style.display = 'block';
         }
+
+        this.invalidate();
     }
 
-    setTick(tick: number): void {
-        console.log("UpcomingPieceView#setTick(" + tick + ")");
+    set tick(tick: number) {
+        this._tick = tick;
+        this.invalidate();
+    }
+
+    protected onDraw(context: CanvasRenderingContext2D,
+                     width: number,
+                     height: number): void {
+        if (this._paused) {
+            return;
+        }
+
+        var midX = width / 2;
+        var midY = height / 2;
+        var radius = midX - UpcomingPieceView.STROKE_WIDTH;
+        var endFraction = this._tick / CountUp.NUMBER_TICKS;
+
+        context.strokeStyle = UpcomingPieceView.STROKE_COLOR;
+        context.lineWidth = UpcomingPieceView.STROKE_WIDTH;
+
+        context.rotate(-90 * CanvasView.DEG_TO_RAD);
+        context.translate(-width, 0);
+
+        context.beginPath();
+        context.arc(midX, midY, radius,
+                    UpcomingPieceView.DEG_START,
+                    UpcomingPieceView.DEG_END * endFraction);
+        context.stroke();
     }
 }
