@@ -33,7 +33,7 @@ body {
   padding: 0;
   font: 14px "Roboto", "Segoe", "San Francisco", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
   background-color: #263238;
-  color: #fff;
+  color: #f0f0f0;
 }
 
 * {
@@ -54,12 +54,12 @@ body {
 
   #left-stats {
     float: left;
-    text-align: left;
+    text-align: center;
   }
 
   #right-stats {
     float: right;
-    text-align: right;
+    text-align: center;
   }
 }
 
@@ -75,11 +75,15 @@ body {
   display: block;
   font-size: 1.4em;
   font-weight: bold;
+  color: #E1F5FE;
+  text-shadow: rgba(225,245,254,0.3) 0 0 12px;
   margin-bottom: $gap_small;
 }
 
 .game-stat {
   font-size: 1.1em;
+  color: #E1F5FE;
+  text-shadow: rgba(225,245,254,0.3) 0 0 8px;
 }
 
 .game-controls {
@@ -88,22 +92,26 @@ body {
 }
 
 .game-controls button {
-  font-weight: bold;
-  text-shadow: rgba(255,255,255,0.4) 0 0 8px;
-  color: #263238;
-  background: #03A9F4 linear-gradient(0deg, rgba(255, 255, 255, 0.0), rgba(255, 255, 255, 0.1));
-  border: 2px solid #263238;
   padding: $gap_small $gap_large;
-  box-shadow: rgba(255,255,255,0.4) 0 0 8px inset;
-  border-radius: 50px;
+  width: 30%;
+
+  background-color: transparent;
+  border: none;
+  border-radius: 3px;
+
+  font-weight: bold;
+  text-transform: uppercase;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  color: #03A9F4;
+
+  outline-color: #03A9F4;
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
-  width: 30%;
-  white-space: nowrap;
-  text-overflow: ellipsis;
 }
 
 .game-controls button:active {
-  background-color: #028dcb;
+  background-color: rgba(0, 0, 0, 0.2);
+  outline-width: 0;
 }

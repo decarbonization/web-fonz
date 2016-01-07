@@ -66,8 +66,10 @@ class UpcomingPieceView extends CanvasView {
         this._paused = paused;
 
         if (paused) {
+            this.node.style.opacity = '0.4';
             this._pieceNode.style.display = 'none';
         } else {
+            this.node.style.opacity = '1.0';
             this._pieceNode.style.display = 'block';
         }
 

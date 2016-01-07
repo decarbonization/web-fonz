@@ -85,20 +85,20 @@
 @include power-up-class('clear');
 @include power-up-class('timer');
 
-//noinspection CssOptimizeSimilarProperties
 .upcoming-parent {
   position: relative;
-  @include background-ref("background_pie");
-  background-repeat: no-repeat;
-  background-position: center center;
   width: $upcoming_width;
   height: $upcoming_height;
   margin: $gap_large auto;
 }
 
+//noinspection CssOptimizeSimilarProperties
 .upcoming-parent .upcoming-timer {
   display: block;
   position: absolute;
+  @include background-ref("background_pie");
+  background-repeat: no-repeat;
+  background-position: center center;
 }
 
 .upcoming-parent #upcoming-piece {
