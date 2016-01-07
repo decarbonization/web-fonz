@@ -38,12 +38,12 @@ body {
   min-width: 300px;
   max-width: 600px;
   margin: 0 auto;
+  padding: $gap_outer;
 }
 
 @import "board";
 
 .game-stats {
-  margin-top: $gap_outer;
   margin-bottom: $gap_medium;
 
   #left-stats {
@@ -78,7 +78,6 @@ body {
 
 .game-controls {
   margin-top: $gap_medium;
-  margin-bottom: $gap_outer;
   text-align: center;
 }
 
