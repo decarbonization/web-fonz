@@ -35,6 +35,9 @@ class CountUp extends Timer {
     public static MIN_TICK_DURATION: Milliseconds = 450;
     public static DEFAULT_SCALE_FACTOR = 0.90;
 
+    private tickEvent: CountUpTickedEvent = new CountUpTickedEvent();
+    private completedEvent: CountUpCompletedEvent = new CountUpCompletedEvent();
+
     constructor(private bus: Bus) {
         super();
     }
@@ -55,18 +58,16 @@ class CountUp extends Timer {
     }
 
     onTick(tick: number): void {
-        this.bus.post(new CountUpTickedEvent(tick));
+        this.tickEvent.setValue(tick);
+        this.bus.post(this.tickEvent);
     }
 
     onCompleted(): void {
-        this.bus.post(new CountUpCompletedEvent());
+        this.bus.post(this.completedEvent);
     }
 }
 
 class CountUpTickedEvent extends BusValueEvent<number> {
-    constructor(value: number) {
-        super(value);
-    }
 }
 
 class CountUpCompletedEvent extends BusEvent {

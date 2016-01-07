@@ -32,6 +32,10 @@ abstract class BusValueEvent<T> extends BusEvent {
         super();
     }
 
+    setValue(newValue: T): void {
+        this._value = newValue;
+    }
+
     getValue(): T {
         return this._value;
     }

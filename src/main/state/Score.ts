@@ -31,6 +31,8 @@ class Score {
     value: number;
     multiplier: number;
 
+    private changedEvent: ScoreChangedEvent = new ScoreChangedEvent(0);
+
     constructor(private bus: Bus) {
         this.value = 0;
         this.multiplier = 1.0;
@@ -43,19 +45,18 @@ class Score {
         }
         this.value += Math.round(score * this.multiplier);
 
-        this.bus.post(new ScoreChangedEvent(this.value));
+        this.changedEvent.setValue(this.value);
+        this.bus.post(this.changedEvent);
     }
 
     reset(): void {
         this.value = 0;
         this.multiplier = 1.0;
 
-        this.bus.post(new ScoreChangedEvent(this.value));
+        this.changedEvent.setValue(this.value);
+        this.bus.post(this.value);
     }
 }
 
 class ScoreChangedEvent extends BusValueEvent<number> {
-    constructor(value: number) {
-        super(value);
-    }
 }

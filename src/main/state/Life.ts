@@ -30,6 +30,7 @@ class Life {
     static INITIAL_VALUE: number = 5;
 
     private _value: number = Life.INITIAL_VALUE;
+    private changedEvent: LifeChangedEvent = new LifeChangedEvent(0);
 
     constructor(private bus: Bus) {
     }
@@ -41,13 +42,15 @@ class Life {
     decrement(): void {
         if (this._value > 0) {
             this._value--;
-            this.bus.post(new LifeChangedEvent(this._value));
+            this.changedEvent.setValue(this._value);
+            this.bus.post(this.changedEvent);
         }
     }
 
     increment(): void {
         this._value++;
-        this.bus.post(new LifeChangedEvent(this._value));
+        this.changedEvent.setValue(this._value);
+        this.bus.post(this.changedEvent);
     }
 
     isAlive(): boolean {
@@ -56,12 +59,10 @@ class Life {
 
     reset(): void {
         this._value = Life.INITIAL_VALUE;
-        this.bus.post(new LifeChangedEvent(this._value));
+        this.changedEvent.setValue(this._value);
+        this.bus.post(this.changedEvent);
     }
 }
 
 class LifeChangedEvent extends BusValueEvent<number> {
-    constructor(value: number) {
-        super(value);
-    }
 }

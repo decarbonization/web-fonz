@@ -31,6 +31,8 @@ class Pie {
     private slots: Array<Piece> = [];
     private occupiedSlots: number = 0;
 
+    private changedEvent: PieChangedEvent = new PieChangedEvent(this);
+
     constructor(public bus: Bus) {
         Slots.forEach((slot) => {
             this.slots[slot] = Piece.EMPTY;
@@ -90,7 +92,7 @@ class Pie {
         });
         this.occupiedSlots = 0;
 
-        this.bus.post(new PieChangedEvent(this));
+        this.bus.post(this.changedEvent);
     }
 }
 

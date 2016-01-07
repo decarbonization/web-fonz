@@ -279,7 +279,7 @@ class Game {
         }
     }
 
-//endregion
+    //endregion
 
     @subscribe(CountUpCompletedEvent)
     onCountUpCompleted(ignored: CountUpCompletedEvent): void {
