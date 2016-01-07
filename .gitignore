@@ -1,3 +1,4 @@
+
 # Created by .ignore support plugin (hsz.mobi)
 ### Node template
 # Logs
@@ -32,3 +33,4 @@ node_modules
 js
 style/*.css
 style/*.css.map
+Gemfile.lock

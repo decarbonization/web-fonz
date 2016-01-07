@@ -1,7 +1,11 @@
 {
   "name": "fonz",
+  "description": "A clone of the iconfactory's excellent Frenzic game.",
   "version": "0.0.1",
+  "license": "SEE LICENSE IN LICENSE.txt",
+  "repository": "https://github.com/decarbonization/web-fonz",
   "dependencies": {
+    "typescript": "1.7.5",
     "mocha-phantomjs": "4.0.1",
     "chai": "3.4.1",
     "mocha": "2.3.4",

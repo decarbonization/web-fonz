@@ -25,8 +25,6 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-///<reference path="../../../../type-definitions/lolex.d.ts"/>
-
 var assert = chai.assert;
 
 suite("GameTests", () => {
