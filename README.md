@@ -6,9 +6,9 @@ A clone of the iconfactory's excellent [Frenzic](http://frenzic.com/) game.
 
 ## Prerequisites
 
-- Ruby
-- Node.js and npm
-- Bundler
+- Ruby ([Installer for Windows](http://rubyinstaller.org/))
+- Node.js and npm ([Installer](https://nodejs.org/en/download/))
+- Bundler ([Install directions](http://bundler.io/))
 
 ## Building
 
