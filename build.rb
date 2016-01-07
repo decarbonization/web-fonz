@@ -32,6 +32,8 @@ TS_PROJECTS = ['src/main', 'src/test']
 SASS_PROJECTS = ['style']
 CLEAN_DIRS = ['js', '.sass-cache']
 CLEAN_GLOBS = ['style/*.css.map', 'style/*.css']
+PACKAGE_DEST = 'dist/'
+
 COMMANDS = {}
 COMMAND_DESCRIPTIONS = {}
 EXECUTED_COMMANDS = []
@@ -80,7 +82,14 @@ def run_command(name)
     print_usage
     exit(-1)
   end
-  command[]
+  
+  begin
+    command[]
+  rescue => e
+    $stderr.puts(e.to_s.red)
+    exit(-1)
+  end
+  
   EXECUTED_COMMANDS << normalized_name
 end
 
@@ -130,26 +139,57 @@ COMMANDS['test'] = lambda do
   exit(status) if status != 0
 end
 
+COMMAND_DESCRIPTIONS['package'] = "Packages the project for distribution"
+COMMANDS['package'] = lambda do
+  prerequisite 'project'
+  prerequisite 'test'
+  
+  begin_command "Package"
+  
+  unless Dir::exist? PACKAGE_DEST
+    begin_task "Creating '#{PACKAGE_DEST}'"
+    Dir::mkdir(PACKAGE_DEST)
+  end
+  
+  begin_task "Copying js"
+  js_dest = File::join(PACKAGE_DEST, "js")
+  FileUtils::rm_r(js_dest) if Dir::exist? js_dest
+  FileUtils::cp_r("js", js_dest)
+  
+  begin_task "Copying css"
+  style_dest = File::join(PACKAGE_DEST, "style")
+  FileUtils::rm_r(style_dest) if Dir::exist? style_dest
+  Dir::mkdir(style_dest)
+  
+  Dir["style/*.css"].each do |file|
+    file_dest = File::join(style_dest, File::basename(file))
+    begin_task "Copying '#{file}' to '#{file_dest}"
+    FileUtils::cp(file, style_dest)
+  end
+  
+  begin_task "Copying images"
+  FileUtils::cp_r("style/img", File::join(style_dest, "img"))
+  
+  begin_task "Copying 'index.html'"
+  FileUtils::cp("index.html", File::join(PACKAGE_DEST, "index.html"))
+end
+
 COMMAND_DESCRIPTIONS['clean'] = "Deletes all compiled project files"
 COMMANDS['clean'] = lambda do
   begin_command "Clean"
-  begin
-    CLEAN_DIRS.each do |dir|
-      begin_task "'#{dir}'"
-      next unless Dir::exist? dir
-      FileUtils::rm_r(dir)
+  
+  CLEAN_DIRS.each do |dir|
+    begin_task "'#{dir}'"
+    next unless Dir::exist? dir
+    FileUtils::rm_r(dir)
+  end
+  
+  CLEAN_GLOBS.each do |glob|
+    Dir[glob].each do |file|
+      begin_task "'#{file}'"
+      next unless File::exist? file
+      File::delete(file)
     end
-    
-    CLEAN_GLOBS.each do |glob|
-      Dir[glob].each do |file|
-        begin_task "'#{file}'"
-        next unless File::exist? file
-        File::delete(file)
-      end
-    end
-  rescue => e
-    $stderr.puts(e.to_s.red)
-    exit(-1)
   end
 end
 

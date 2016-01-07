@@ -34,3 +34,4 @@ js
 style/*.css
 style/*.css.map
 Gemfile.lock
+dist
