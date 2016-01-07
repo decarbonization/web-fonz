@@ -34,6 +34,10 @@ body {
   font: 14px "Roboto", "Segoe", "San Francisco", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
 }
 
+* {
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
+}
+
 #main {
   min-width: 300px;
   max-width: 600px;
@@ -93,8 +97,9 @@ body {
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
-  margin: 0 $gap_small;
-  min-width: 100px;
+  width: 30%;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 
 .game-controls button:active {
