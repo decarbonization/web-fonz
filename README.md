@@ -19,12 +19,14 @@ Before building the project, you will need to install the external dependencies.
 ```sh
 # Unix-like systems
 cd web-fonz
+{sudo} gem install colorize
 {sudo} ./build dependencies
 ```
 
 ```bat
 REM Windows
 cd web-fonz
+gem install colorize
 build dependencies
 ```
 
