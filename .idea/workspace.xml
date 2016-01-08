@@ -1,8 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="33f945ed-288d-40bb-9542-bcaf624dde63" name="Default" comment="reduce amount of event object allocations">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
+    <list default="true" id="33f945ed-288d-40bb-9542-bcaf624dde63" name="Default" comment="style improvements to fit into iOS">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/icons/ios-196x196.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.html" afterPath="$PROJECT_DIR$/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/style/dimensions.scss" afterPath="$PROJECT_DIR$/style/dimensions.scss" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/style/main.scss" afterPath="$PROJECT_DIR$/style/main.scss" />
     </list>
     <ignored path="web-fonz.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -22,7 +26,18 @@
     <favorites_list name="web-fonz" />
   </component>
   <component name="FileEditorManager">
-    <leaf />
+    <leaf>
+      <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/index.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.20782042">
+              <caret line="7" column="39" selection-start-line="7" selection-start-column="39" selection-end-line="7" selection-end-column="39" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -74,12 +89,9 @@
         <option value="$PROJECT_DIR$/src/main/state/Pie.ts" />
         <option value="$PROJECT_DIR$/src/main/events/BusValueEvent.ts" />
         <option value="$PROJECT_DIR$/src/main/state/Life.ts" />
-        <option value="$PROJECT_DIR$/style/dimensions.scss" />
-        <option value="$PROJECT_DIR$/index.html" />
         <option value="$PROJECT_DIR$/src/main/widget/BoardView.ts" />
         <option value="$PROJECT_DIR$/js/app.js" />
         <option value="$PROJECT_DIR$/src/main/widget/CanvasView.ts" />
-        <option value="$PROJECT_DIR$/style/main.scss" />
         <option value="$PROJECT_DIR$/style/board.scss" />
         <option value="$PROJECT_DIR$/src/main/widget/UpcomingPieceView.ts" />
         <option value="$PROJECT_DIR$/src/main/game/CountUp.ts" />
@@ -92,6 +104,9 @@
         <option value="$PROJECT_DIR$/src/main/main.ts" />
         <option value="$PROJECT_DIR$/src/test/game/GameTests.ts" />
         <option value="$PROJECT_DIR$/README.md" />
+        <option value="$PROJECT_DIR$/style/dimensions.scss" />
+        <option value="$PROJECT_DIR$/style/main.scss" />
+        <option value="$PROJECT_DIR$/index.html" />
       </list>
     </option>
   </component>
@@ -202,28 +217,6 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="web-fonz" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="web-fonz" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="util" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
         </subPane>
       </pane>
     </panes>
@@ -249,19 +242,19 @@
     <property name="list.type.of.created.stylesheet" value="SCSS" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\kevin\WebstormProjects\web-fonz\src\test" />
-      <recent name="C:\Users\kevin\WebstormProjects\web-fonz\style\img\2x" />
-      <recent name="C:\Users\kevin\WebstormProjects\web-fonz\style\img\1x" />
-      <recent name="C:\Users\kevin\WebstormProjects\web-fonz\type-definitions" />
-      <recent name="C:\Users\kevin\WebstormProjects\web-fonz\style" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\kevin\WebstormProjects\web-fonz" />
       <recent name="C:\Users\kevin\WebstormProjects\web-fonz\style\img\1x" />
       <recent name="C:\Users\kevin\WebstormProjects\web-fonz\img\2x" />
       <recent name="C:\Users\kevin\WebstormProjects\web-fonz\img\1x" />
       <recent name="C:\Users\kevin\WebstormProjects\web-fonz\test" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\kevin\WebstormProjects\web-fonz\icons" />
+      <recent name="C:\Users\kevin\WebstormProjects\web-fonz\src\test" />
+      <recent name="C:\Users\kevin\WebstormProjects\web-fonz\style\img\2x" />
+      <recent name="C:\Users\kevin\WebstormProjects\web-fonz\style\img\1x" />
+      <recent name="C:\Users\kevin\WebstormProjects\web-fonz\type-definitions" />
     </key>
   </component>
   <component name="RunManager" selected="Node.js.Tests">
@@ -645,7 +638,13 @@
       <option name="project" value="LOCAL" />
       <updated>1452230013688</updated>
     </task>
-    <option name="localTasksCounter" value="38" />
+    <task id="LOCAL-00038" summary="add missing step to README">
+      <created>1452231705091</created>
+      <option name="number" value="00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1452231705091</updated>
+    </task>
+    <option name="localTasksCounter" value="39" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -682,9 +681,9 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-13" y="-13" width="2762" height="1770" extended-state="6" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24851412" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21991085" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="TypeScript Compiler" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.328125" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32880434" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
@@ -716,8 +715,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="port piece factory" />
-    <MESSAGE value="implement first parts of view system" />
     <MESSAGE value="initial port of non-timer dependent game logic" />
     <MESSAGE value="implement timer + count up" />
     <MESSAGE value="port power up timer" />
@@ -741,7 +738,9 @@
     <MESSAGE value="some tweaks to behave better on iOS" />
     <MESSAGE value="reduce amount of event object allocations" />
     <MESSAGE value="fix failing tests" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix failing tests" />
+    <MESSAGE value="add missing step to README" />
+    <MESSAGE value="style improvements to fit into iOS" />
+    <option name="LAST_COMMIT_MESSAGE" value="style improvements to fit into iOS" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">
@@ -749,22 +748,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/test/state/LifeTests.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.028711485">
-          <caret line="26" column="0" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/state/PieTests.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.028711485">
-          <caret line="26" column="0" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/test/game/PowerUpTimerTests.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.3970588">
@@ -872,6 +855,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.36525613">
           <caret line="86" column="7" selection-start-line="86" selection-start-column="7" selection-end-line="86" selection-end-column="7" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -949,25 +933,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/style/dimensions.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.7074584">
-          <caret line="37" column="34" selection-start-line="37" selection-start-column="34" selection-end-line="37" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/node_modules/typescript/lib/lib.d.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.33333334">
           <caret line="5154" column="4" selection-start-line="5154" selection-start-column="4" selection-end-line="5154" selection-end-column="4" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.41057205">
-          <caret line="40" column="49" selection-start-line="40" selection-start-column="49" selection-end-line="40" selection-end-column="49" />
           <folding />
         </state>
       </provider>
@@ -1012,13 +981,6 @@
           <folding>
             <element signature="n#!!doc" expanded="false" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/style/main.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3468501">
-          <caret line="70" column="12" selection-start-line="70" selection-start-column="12" selection-end-line="70" selection-end-column="12" />
         </state>
       </provider>
     </entry>
@@ -1137,7 +1099,7 @@
         <state vertical-scroll-proportion="0.39562842">
           <caret line="25" column="3" selection-start-line="25" selection-start-column="3" selection-end-line="25" selection-end-column="3" />
           <folding>
-            <element signature="n#!!doc" expanded="true" />
+            <element signature="n#!!doc" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1147,7 +1109,7 @@
         <state vertical-scroll-proportion="0.028711485">
           <caret line="25" column="3" selection-start-line="25" selection-start-column="3" selection-end-line="25" selection-end-column="3" />
           <folding>
-            <element signature="n#!!doc" expanded="true" />
+            <element signature="n#!!doc" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1155,11 +1117,48 @@
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
-          <first_editor vertical-scroll-proportion="0.1858006">
-            <caret line="2" column="182" selection-start-line="2" selection-start-column="182" selection-end-line="2" selection-end-column="182" />
+          <first_editor vertical-scroll-proportion="0.4954683">
+            <caret line="28" column="20" selection-start-line="28" selection-start-column="20" selection-end-line="28" selection-end-column="20" />
             <folding />
           </first_editor>
           <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/style/dimensions.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/style/dimensions.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.7921796">
+          <caret line="43" column="0" selection-start-line="43" selection-start-column="0" selection-end-line="43" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/style/main.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.3859522">
+          <caret line="34" column="27" selection-start-line="34" selection-start-column="21" selection-end-line="34" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/icons/ios-196x196.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.20782042">
+          <caret line="7" column="39" selection-start-line="7" selection-start-column="39" selection-end-line="7" selection-end-column="39" />
+          <folding />
         </state>
       </provider>
     </entry>
