@@ -40,6 +40,8 @@ class CountUp extends Timer {
 
     constructor(private bus: Bus) {
         super();
+
+        this.tickCount = CountUp.NUMBER_TICKS;
     }
 
     scaleTickDuration(factor: number) {

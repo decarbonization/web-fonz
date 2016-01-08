@@ -142,19 +142,21 @@ class Fonz implements BoardViewListener {
         PowerUps.forEach(powerUp => {
             this.boardView.setPowerUpAvailable(powerUp, false);
         });
+
+        alert("Game Over\n\nFinal Score: " + event.score);
     }
 
     //endregion
 
-    onSettingsClicked(sender: Button): void {
+    onSettingsClicked(): void {
         this.logger.info("Fonz", "onSettingsClicked");
     }
 
-    onHelpClicked(sender: Button): void {
+    onHelpClicked(): void {
         this.logger.info("Fonz", "onHelpClicked");
     }
 
-    onGameClicked(sender: Button): void {
+    onGameClicked(): void {
         this.logger.info("Fonz", "onGameClicked");
 
         if (this.game.inProgress) {
