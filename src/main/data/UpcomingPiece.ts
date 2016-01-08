@@ -28,4 +28,8 @@
 class UpcomingPiece {
     constructor(public piece: Piece, public slot: Slot) {
     }
+
+    toString(): string {
+        return "UpcomingPiece{piece: " + this.piece + ", slot: " + this.slot + "}";
+    }
 }

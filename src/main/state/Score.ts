@@ -54,7 +54,7 @@ class Score {
         this.multiplier = 1.0;
 
         this.changedEvent.setValue(this.value);
-        this.bus.post(this.value);
+        this.bus.post(this.changedEvent);
     }
 }
 

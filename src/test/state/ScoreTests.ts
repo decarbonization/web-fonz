@@ -52,8 +52,7 @@ suite('ScoreTests', () => {
         score.addPie(false);
         assert.equal(score.value, 120);
 
-        var scores = listener.events.map((e) => e.getValue());
-        assert.deepEqual(scores, [60, 120]);
+        assert.deepEqual(listener.scores, [60, 120]);
     });
 
     test('#addSameColor()', () => {
@@ -65,8 +64,7 @@ suite('ScoreTests', () => {
         score.addPie(false);
         assert.equal(score.value, 180);
 
-        var scores = listener.events.map((e) => e.getValue());
-        assert.deepEqual(scores, [120, 180]);
+        assert.deepEqual(listener.scores, [120, 180]);
     });
 
     test('#multiplier()', () => {
@@ -79,8 +77,7 @@ suite('ScoreTests', () => {
         score.addPie(true);
         assert.equal(score.value, 540);
 
-        var scores = listener.events.map((e) => e.getValue());
-        assert.deepEqual(scores, [180, 540]);
+        assert.deepEqual(listener.scores, [180, 540]);
     });
 
     test('#reset()', () => {
@@ -94,16 +91,15 @@ suite('ScoreTests', () => {
         assert.equal(score.value, 0);
         assert.equal(score.multiplier, 1.0);
 
-        var scores = listener.events.map((e) => e.getValue());
-        assert.deepEqual(scores, [180, 0]);
+        assert.deepEqual(listener.scores, [180, 0]);
     });
 });
 
 class ScoreTestsListener {
-    public events: Array<ScoreChangedEvent> = [];
+    public scores: Array<number> = [];
 
     @subscribe(ScoreChangedEvent)
     onScoreChanged(event: ScoreChangedEvent): void {
-        this.events.push(event);
+        this.scores.push(event.getValue());
     }
 }

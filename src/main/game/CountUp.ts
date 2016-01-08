@@ -35,7 +35,7 @@ class CountUp extends Timer {
     public static MIN_TICK_DURATION: Milliseconds = 450;
     public static DEFAULT_SCALE_FACTOR = 0.90;
 
-    private tickEvent: CountUpTickedEvent = new CountUpTickedEvent();
+    private tickEvent: CountUpTickedEvent = new CountUpTickedEvent(0);
     private completedEvent: CountUpCompletedEvent = new CountUpCompletedEvent();
 
     constructor(private bus: Bus) {
