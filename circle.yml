@@ -5,6 +5,7 @@ machine:
     version: 2.2.3
 dependencies:
   override:
+    - gem install colorize
     - ./build dependencies
 test:
   pre:
