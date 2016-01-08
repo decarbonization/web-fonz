@@ -6,7 +6,7 @@
   "repository": "https://github.com/decarbonization/web-fonz",
   "dependencies": {
     "typescript": "1.7.5",
-    "mocha-phantomjs": "4.0.1",
+    "mocha-phantomjs": "4.0.2",
     "chai": "3.4.1",
     "mocha": "2.3.4",
     "lolex": "1.4.0"

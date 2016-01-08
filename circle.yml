@@ -11,4 +11,5 @@ test:
   pre:
     - ./build clean
   override:
-    - ./build test > $CIRCLE_TEST_REPORTS/mocha/results.txt
+    - ./build test -- -x
+    - cp _TestResults.xml $CIRCLE_TEST_REPORTS/mocha.xml

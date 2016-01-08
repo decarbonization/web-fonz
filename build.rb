@@ -36,6 +36,8 @@ CLEAN_GLOBS = ['style/*.css.map', 'style/*.css']
 PACKAGE_DEST = 'dist/'
 PACKAGE_EXCLUDE = ['style/board.css', 'style/images.css', 'style/dimensions.css', 'js/test.js']
 
+XUNIT_OUTPUT_FILE = '_TestResults.xml'
+
 COMMANDS = {}
 COMMAND_DESCRIPTIONS = {}
 EXECUTED_COMMANDS = []
@@ -74,7 +76,7 @@ def normalize_name(name)
   name.downcase
 end
 
-def run_command(name)
+def run_command(name, args)
   normalized_name = normalize_name(name)
   return if EXECUTED_COMMANDS.include? normalized_name
   
@@ -86,7 +88,7 @@ def run_command(name)
   end
   
   begin
-    command[]
+    command[args]
   rescue => e
     $stderr.puts(e.to_s.red)
     exit(-1)
@@ -95,13 +97,13 @@ def run_command(name)
   EXECUTED_COMMANDS << normalized_name
 end
 
-def prerequisite(name)
+def prerequisite(name, args = [])
   normalized_name = normalize_name(name)
-  run_command(normalized_name) unless EXECUTED_COMMANDS.include? normalized_name
+  run_command(normalized_name, args) unless EXECUTED_COMMANDS.include? normalized_name
 end
 
 COMMAND_DESCRIPTIONS['dependencies'] = "Sets up external project dependencies"
-COMMANDS['dependencies'] = lambda do
+COMMANDS['dependencies'] = lambda do |args|
   begin_command "Dependencies"
   
   begin_task "Ruby dependencies"
@@ -112,7 +114,7 @@ COMMANDS['dependencies'] = lambda do
 end
 
 COMMAND_DESCRIPTIONS['project'] = "Compiles all of the project source files"
-COMMANDS['project'] = lambda do
+COMMANDS['project'] = lambda do |args|
   begin_command "Build Project"
   
   TS_PROJECTS.each do |project|
@@ -130,19 +132,30 @@ COMMANDS['project'] = lambda do
 end
 
 COMMAND_DESCRIPTIONS['test'] = "Runs all project unit tests"
-COMMANDS['test'] = lambda do
+COMMANDS['test'] = lambda do |args|
   prerequisite('project')
   
   begin_command "Test"
   begin_task "All tests"
-  system("node node_modules/mocha-phantomjs/bin/mocha-phantomjs test.html")
-  
-  status = $?.exitstatus
-  exit(status) if status != 0
+  if args.include? "-x"
+    File::delete(XUNIT_OUTPUT_FILE) if File::exist? XUNIT_OUTPUT_FILE
+    
+    output = %x[node node_modules/mocha-phantomjs/bin/mocha-phantomjs --reporter xunit test.html]
+    handle_cmd_out(output)
+    
+    File::open(XUNIT_OUTPUT_FILE, 'w') do |f|
+      f.write(output)
+    end
+  else
+    system("node node_modules/mocha-phantomjs/bin/mocha-phantomjs test.html")
+
+    status = $?.exitstatus
+    exit(status) if status != 0
+  end
 end
 
 COMMAND_DESCRIPTIONS['package'] = "Packages the project for distribution"
-COMMANDS['package'] = lambda do
+COMMANDS['package'] = lambda do |args|
   prerequisite 'project'
   prerequisite 'test'
   
@@ -187,7 +200,7 @@ COMMANDS['package'] = lambda do
 end
 
 COMMAND_DESCRIPTIONS['clean'] = "Deletes all compiled project files"
-COMMANDS['clean'] = lambda do
+COMMANDS['clean'] = lambda do |args|
   begin_command "Clean"
   
   CLEAN_DIRS.each do |dir|
@@ -203,10 +216,12 @@ COMMANDS['clean'] = lambda do
       File::delete(file)
     end
   end
+  
+  File::delete(XUNIT_OUTPUT_FILE) if File::exist? XUNIT_OUTPUT_FILE
 end
 
 COMMAND_DESCRIPTIONS['serve'] = "Run a local server for the project"
-COMMANDS['serve'] = lambda do
+COMMANDS['serve'] = lambda do |args|
   begin_command "Serving Project"
   begin_task "Host addresses:"
   Socket::ip_address_list.each do |address|
@@ -224,6 +239,15 @@ if ARGV.empty?
   exit
 end
 
-ARGV.each do |command|
-  run_command(command)
+args_marker = ARGV.index('--')
+if args_marker.nil?
+  commands = ARGV
+  args = []
+else
+  commands = ARGV[0, args_marker]
+  args = ARGV[args_marker + 1, ARGV.length]
+end
+
+commands.each do |command|
+  run_command(command, args)
 end
