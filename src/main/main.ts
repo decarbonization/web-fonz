@@ -31,9 +31,11 @@
 
 ///<reference path="game/Game.ts"/>
 ///<reference path="util/Bus.ts"/>
+///<reference path="util/Logger.ts"/>
 
 class Fonz implements BoardViewListener {
     bus: Bus = new Bus();
+    logger: Logger = new ConsoleLogger();
     game: Game;
 
     statsView: StatsView;
@@ -41,9 +43,9 @@ class Fonz implements BoardViewListener {
     gameButton: Button;
 
     run(): void {
-        console.log("Fonz#run");
+        this.logger.info("Fonz", "run");
 
-        this.game = new Game(this.bus);
+        this.game = new Game(this.bus, this.logger);
         this.bus.register(this);
 
         var settingsButton = Button.$('#game-control-settings');
@@ -145,15 +147,15 @@ class Fonz implements BoardViewListener {
     //endregion
 
     onSettingsClicked(sender: Button): void {
-        console.log("Fonz#onSettingsClicked");
+        this.logger.info("Fonz", "onSettingsClicked");
     }
 
     onHelpClicked(sender: Button): void {
-        console.log("Fonz#onHelpClicked");
+        this.logger.info("Fonz", "onHelpClicked");
     }
 
     onGameClicked(sender: Button): void {
-        console.log("Fonz#onGameClicked");
+        this.logger.info("Fonz", "onGameClicked");
 
         if (this.game.inProgress) {
             if (this.game.paused) {

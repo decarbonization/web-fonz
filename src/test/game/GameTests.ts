@@ -37,7 +37,7 @@ suite("GameTests", () => {
         clock = lolex.install();
         listener = new GameTestsEventListener();
         bus = new Bus();
-        game = new Game(bus);
+        game = new Game(bus, new NoOpLogger());
         bus.register(listener);
     });
 

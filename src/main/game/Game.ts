@@ -52,7 +52,7 @@ class Game {
     private _paused: boolean = false;
     private _upcomingPiece: UpcomingPiece = null;
 
-    constructor(public bus: Bus) {
+    constructor(public bus: Bus, private logger: Logger) {
         this.life = new Life(bus);
         this.score = new Score(bus);
         this.board = new Board(bus);
@@ -84,11 +84,11 @@ class Game {
     //region Internal
 
     doNewCountUp(): void {
-        console.log("Game#doNewCountUp()");
+        this.logger.info("Game", "doNewCountUp()");
 
         this._inProgress = true;
         this._upcomingPiece = this.pieceFactory.generateUpcomingPiece();
-        console.log("Game: Upcoming piece " + this.upcomingPiece);
+        this.logger.info("Game", "Game: Upcoming piece " + this.upcomingPiece);
 
         this.countUp.start();
 
@@ -96,7 +96,7 @@ class Game {
     }
 
     reset(): void {
-        console.log("Game#reset()");
+        this.logger.info("Game", "reset()");
 
         this.pieceFactory.reset();
 
@@ -118,7 +118,7 @@ class Game {
     //region Controls
 
     newGame(): void {
-        console.log("Game#newGame()");
+        this.logger.info("Game", "newGame()");
 
         if (!this.inProgress) {
             this.reset();
@@ -164,7 +164,7 @@ class Game {
     }
 
     skipPiece(): void {
-        console.log("Game#skipPiece()");
+        this.logger.info("Game", "skipPiece()");
 
         if (this.inProgress) {
             this.life.decrement();
@@ -178,7 +178,7 @@ class Game {
     }
 
     pause(): void {
-        console.log("Game#pause()");
+        this.logger.info("Game", "pause()");
 
         if (!this.paused && this.inProgress) {
             this.countUp.pause();
@@ -190,7 +190,7 @@ class Game {
     }
 
     resume(): void {
-        console.log("Game#resume()");
+        this.logger.info("Game", "resume()");
 
         if (this.paused && this.inProgress) {
             this.countUp.resume();
@@ -202,7 +202,7 @@ class Game {
     }
 
     gameOver(how: GameOverCause): void {
-        console.log("Game#gameOver()");
+        this.logger.info("Game", "gameOver()");
 
         if (this.inProgress) {
             var finalScore = this.score.value;
@@ -216,7 +216,7 @@ class Game {
     //region Power Ups
 
     clearAll(): boolean {
-        console.log("Game#clearAll()");
+        this.logger.info("Game", "clearAll()");
 
         if (this.inProgress && this.board.usePowerUp(PowerUp.CLEAR_ALL)) {
             for (var i = 0; i < Board.NUMBER_PIES; i++) {
@@ -231,7 +231,7 @@ class Game {
     }
 
     multiplyScore(): boolean {
-        console.log("Game#useScoreMultiplier()");
+        this.logger.info("Game", "useScoreMultiplier()");
 
         if (this.inProgress && this.board.hasPowerUp(PowerUp.MULTIPLY_SCORE) &&
             !this.powerUpTimer.isPending(PowerUp.MULTIPLY_SCORE)) {
@@ -245,7 +245,7 @@ class Game {
     }
 
     slowDownTime(): boolean {
-        console.log("Game#slowDownTime()");
+        this.logger.info("Game", "slowDownTime()");
 
         if (this.inProgress && this.board.hasPowerUp(PowerUp.SLOW_DOWN_TIME) &&
             !this.powerUpTimer.isPending(PowerUp.SLOW_DOWN_TIME)) {
@@ -261,7 +261,7 @@ class Game {
     @subscribe(PowerUpExpiredEvent)
     onPowerUpExpired(expiration: PowerUpExpiredEvent): void {
         var powerUp = expiration.getValue();
-        console.log("Game#onPowerUpExpired(" + powerUp + ")");
+        this.logger.info("Game", "onPowerUpExpired(" + powerUp + ")");
 
         this.board.usePowerUp(powerUp);
         switch (powerUp) {
