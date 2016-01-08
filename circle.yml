@@ -1,0 +1,13 @@
+machine:
+  node:
+    version: 4.2.3
+  ruby:
+    version: 2.2.3
+dependencies:
+  override:
+    - ./build dependencies
+test:
+  pre:
+    - ./build clean
+  override:
+    - ./build test > $CIRCLE_TEST_REPORTS/mocha/results.txt
