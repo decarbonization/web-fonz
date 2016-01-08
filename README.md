@@ -1,5 +1,7 @@
 # Fonz
 
+[![Circle CI](https://circleci.com/gh/decarbonization/web-fonz.svg?style=svg&circle-token=400cd73004d30e2019aeaedf86e8a8bc0e0a0ba6)](https://circleci.com/gh/decarbonization/web-fonz)
+
 A clone of the iconfactory's excellent [Frenzic](http://frenzic.com/) game.
 
 # Building
