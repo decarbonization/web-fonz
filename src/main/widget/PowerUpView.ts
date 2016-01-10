@@ -26,16 +26,18 @@
  */
 
 ///<reference path="ClickableView.ts"/>
+///<reference path="TimerView.ts"/>
 
 class PowerUpView extends ClickableView<HTMLDivElement> {
     static DISABLED_CLASS = 'power-up-disabled';
 
+    private _timerView: TimerView;
+
     constructor(node: HTMLDivElement) {
         super(node);
-    }
 
-    get enabled(): boolean {
-        return !this.hasClass(PowerUpView.DISABLED_CLASS);
+        this._timerView = new TimerView(node.querySelector('.power-up-count-down') as HTMLCanvasElement);
+        this._timerView.tickCount = PowerUpTimer.STANDARD_NUMBER_TICKS;
     }
 
     set enabled(enabled: boolean) {
@@ -47,5 +49,7 @@ class PowerUpView extends ClickableView<HTMLDivElement> {
         }
     }
 
-    public tick: number = 0;
+    set tick(tick: number) {
+        this._timerView.tick = tick;
+    }
 }

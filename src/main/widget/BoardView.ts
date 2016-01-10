@@ -106,17 +106,22 @@ class BoardView extends View<HTMLDivElement> {
     }
 
     setPowerUpAvailable(powerUp: PowerUp, available: boolean): void {
-        this.powerUpViews[powerUp].enabled = available;
+        var powerUpView: PowerUpView = this.powerUpViews[powerUp];
+        powerUpView.enabled = available;
+
+        if (!available) {
+            powerUpView.tick = 0;
+        }
     }
 
     setPowerUpActive(powerUp: PowerUp, active: boolean): void {
-        var powerUpButton: PowerUpView = this.powerUpViews[powerUp];
+        var powerUpView: PowerUpView = this.powerUpViews[powerUp];
         if (active) {
-            powerUpButton.tick = PowerUpTimer.STANDARD_NUMBER_TICKS;
-            powerUpButton.clickable = false;
+            powerUpView.tick = PowerUpTimer.STANDARD_NUMBER_TICKS;
+            powerUpView.clickable = false;
         } else {
-            powerUpButton.tick = 0;
-            powerUpButton.clickable = true;
+            powerUpView.tick = 0;
+            powerUpView.clickable = true;
         }
     }
 
