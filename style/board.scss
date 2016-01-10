@@ -93,7 +93,7 @@
 }
 
 //noinspection CssOptimizeSimilarProperties
-.upcoming-parent .upcoming-timer {
+.upcoming-parent #upcoming-timer {
   display: block;
   position: absolute;
   @include background-ref("background_pie");

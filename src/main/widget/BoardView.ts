@@ -63,7 +63,7 @@ class BoardView extends View<HTMLDivElement> {
         powerUpTimer.onClick = powerUpViewOnClick;
         this.powerUpViews.push(powerUpTimer);
 
-        var upcomingNode: HTMLCanvasElement = this.$e('.upcoming-timer');
+        var upcomingNode: HTMLDivElement = this.$e('.upcoming-parent');
         this.upcomingPieceView = new UpcomingPieceView(upcomingNode);
         this.upcomingPieceView.onClick = this.onUpcomingPieceClicked.bind(this);
     }

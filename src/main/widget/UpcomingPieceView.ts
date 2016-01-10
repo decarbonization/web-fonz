@@ -25,23 +25,21 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-///<reference path="CanvasView.ts"/>
+///<reference path="ClickableView.ts"/>
+///<reference path="TimerView.ts"/>
 
-class UpcomingPieceView extends CanvasView {
-    private static DEG_START = 0;
-    private static DEG_END = 360 * CanvasView.DEG_TO_RAD;
-    private static STROKE_WIDTH = 2;
-    private static STROKE_COLOR = "#1E88E5";
-
+class UpcomingPieceView extends ClickableView<HTMLDivElement> {
     private _upcomingPiece: UpcomingPiece = null;
     private _paused: boolean = false;
     private _pieceNode: HTMLDivElement;
-    private _tick = 0;
+    private _timerView: TimerView;
 
-    constructor(node: HTMLCanvasElement) {
+    constructor(node: HTMLDivElement) {
         super(node);
 
-        this._pieceNode = node.parentElement.querySelector('#upcoming-piece') as HTMLDivElement;
+        this._pieceNode = node.querySelector('#upcoming-piece') as HTMLDivElement;
+        this._timerView = new TimerView(node.querySelector('#upcoming-timer') as HTMLCanvasElement);
+        this._timerView.tickCount = CountUp.NUMBER_TICKS;
     }
 
 
@@ -64,6 +62,7 @@ class UpcomingPieceView extends CanvasView {
 
     set paused(paused: boolean) {
         this._paused = paused;
+        this._timerView.hidden = paused;
 
         if (paused) {
             this.node.style.opacity = '0.4';
@@ -72,37 +71,9 @@ class UpcomingPieceView extends CanvasView {
             this.node.style.opacity = '1.0';
             this._pieceNode.style.display = 'block';
         }
-
-        this.invalidate();
     }
 
     set tick(tick: number) {
-        this._tick = tick;
-        this.invalidate();
-    }
-
-    protected onDraw(context: CanvasRenderingContext2D,
-                     width: number,
-                     height: number): void {
-        if (this._paused) {
-            return;
-        }
-
-        var midX = width / 2;
-        var midY = height / 2;
-        var radius = midX - UpcomingPieceView.STROKE_WIDTH;
-        var endFraction = this._tick / CountUp.NUMBER_TICKS;
-
-        context.strokeStyle = UpcomingPieceView.STROKE_COLOR;
-        context.lineWidth = UpcomingPieceView.STROKE_WIDTH;
-
-        context.rotate(-90 * CanvasView.DEG_TO_RAD);
-        context.translate(-width, 0);
-
-        context.beginPath();
-        context.arc(midX, midY, radius,
-                    UpcomingPieceView.DEG_START,
-                    UpcomingPieceView.DEG_END * endFraction);
-        context.stroke();
+        this._timerView.tick = tick;
     }
 }

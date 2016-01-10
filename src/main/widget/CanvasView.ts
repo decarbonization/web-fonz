@@ -28,7 +28,7 @@
 ///<reference path="ClickableView.ts"/>
 ///<reference path="../util/Scheduler.ts"/>
 
-class CanvasView extends ClickableView<HTMLCanvasElement> {
+class CanvasView extends View<HTMLCanvasElement> {
     static DEG_TO_RAD = 0.0174533;
 
     private _scaleFactor: number;
