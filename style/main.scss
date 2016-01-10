@@ -32,15 +32,26 @@ body {
   margin: 0;
   padding: 0;
   font: 15px "Roboto", "Segoe", "San Francisco", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
-  background-color: #263238;
+  background-color: #212b30;
   color: #f0f0f0;
+  cursor: default;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 
 * {
   -webkit-tap-highlight-color: rgba(0,0,0,0);
 }
 
+a, button, .clickable {
+  cursor: pointer;
+}
+
 #main {
+  background-color: #263238;
+  box-shadow: rgba(0,0,0,0.1) 0 0 10px;
   display: flex;
   flex-direction: column;
   min-width: 300px;
@@ -104,7 +115,8 @@ body {
 }
 
 .game-controls button {
-  padding: $gap_small $gap_large;;
+  padding: $gap_small $gap_large;
+  width: 30%;
 
   background-color: transparent;
   border: none;

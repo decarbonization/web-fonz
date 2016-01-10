@@ -28,14 +28,38 @@
 ///<reference path="View.ts"/>
 
 class ClickableView<N extends HTMLElement> extends View<N> {
+    private _onClick: (This?, Event?) => void;
+    private _clickable: boolean = true;
+
     constructor(node: N) {
         super(node);
 
         this.addEventListener(View.EVENT_CLICK, this.dispatchClick.bind(this));
     }
 
-    public onClick: (This?, Event?) => void = null;
-    public clickable: boolean = true;
+
+    get onClick(): (This?, Event?) => void {
+        return this._onClick;
+    }
+
+    set onClick(value: (This?, Event?) => void) {
+        this._onClick = value;
+        this.clickable = (!!value);
+    }
+
+    get clickable(): boolean {
+        return this._clickable;
+    }
+
+    set clickable(value: boolean) {
+        this._clickable = value;
+
+        if (value) {
+            this.addClass("clickable");
+        } else {
+            this.removeClass("clickable");
+        }
+    }
 
     dispatchClick(e: Event): boolean {
         if (this.clickable) {

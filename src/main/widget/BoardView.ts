@@ -101,6 +101,14 @@ class BoardView extends View<HTMLDivElement> {
         });
     }
 
+    set playing(playing: boolean) {
+        this.pieViews.forEach(pieView => {
+            pieView.clickable = playing;
+        });
+
+        this.upcomingPieceView.clickable = playing;
+    }
+
     set tick(tick: number) {
         this.upcomingPieceView.tick = tick;
     }

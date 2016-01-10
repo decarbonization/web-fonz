@@ -64,6 +64,7 @@ class Fonz implements BoardViewListener {
         this.boardView.board = this.game.board;
         this.boardView.upcomingPiece = this.game.upcomingPiece;
         this.boardView.paused = gamePaused;
+        this.boardView.playing = this.game.inProgress;
 
         this.gameButton = Button.$('#game-control-game');
         this.gameButton.onClick = this.onGameClicked.bind(this);
@@ -130,6 +131,7 @@ class Fonz implements BoardViewListener {
     onNewGame(ignored: NewGameEvent): void {
         this.gameButton.text = "Pause";
         this.boardView.tick = 1;
+        this.boardView.playing = true;
     }
 
     @subscribe(GameOverEvent)
@@ -139,6 +141,7 @@ class Fonz implements BoardViewListener {
         this.boardView.upcomingPiece = null;
         this.boardView.tick = 0;
         this.boardView.paused = false;
+        this.boardView.playing = false;
         PowerUps.forEach(powerUp => {
             this.boardView.setPowerUpAvailable(powerUp, false);
         });
@@ -150,10 +153,18 @@ class Fonz implements BoardViewListener {
 
     onSettingsClicked(): void {
         this.logger.info("Fonz", "onSettingsClicked");
+
+        if (this.game.inProgress && !this.game.paused) {
+            this.game.pause();
+        }
     }
 
     onHelpClicked(): void {
         this.logger.info("Fonz", "onHelpClicked");
+
+        if (this.game.inProgress && !this.game.paused) {
+            this.game.pause();
+        }
     }
 
     onGameClicked(): void {
