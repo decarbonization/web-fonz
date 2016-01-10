@@ -41,20 +41,19 @@ body {
 }
 
 #main {
+  display: flex;
+  flex-direction: column;
   min-width: 300px;
   max-width: 600px;
+  min-height: 590px;
+  height: 100vh;
   margin: 0 auto;
-  padding: $gap_outer;
-}
-
-.ios.standalone #main {
-  margin-top: $status_bar_ios;
 }
 
 @import "board";
 
 .game-stats {
-  margin-bottom: $gap_medium;
+  margin: $gap_medium;
 
   #left-stats {
     float: left;
@@ -65,6 +64,12 @@ body {
     float: right;
     text-align: center;
   }
+}
+
+.ios.standalone .game-stats:before {
+  content: "";
+  display: block;
+  height: $status_bar_ios;
 }
 
 .game-stats:after {
@@ -91,13 +96,15 @@ body {
 }
 
 .game-controls {
-  margin-top: $gap_medium;
-  text-align: center;
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: space-between;
+  margin: $gap_medium;
 }
 
 .game-controls button {
-  padding: $gap_small $gap_large;
-  width: 30%;
+  padding: $gap_small $gap_large;;
 
   background-color: transparent;
   border: none;
