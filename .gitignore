@@ -35,3 +35,5 @@ style/*.css
 style/*.css.map
 Gemfile.lock
 dist
+
+.DS_Store

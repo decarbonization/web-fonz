@@ -5,10 +5,10 @@
   "license": "SEE LICENSE IN LICENSE.txt",
   "repository": "https://github.com/decarbonization/web-fonz",
   "dependencies": {
-    "typescript": "1.7.5",
+    "typescript": "1.8.10",
     "mocha-phantomjs": "4.0.2",
-    "chai": "3.4.1",
-    "mocha": "2.3.4",
-    "lolex": "1.4.0"
+    "chai": "3.5.0",
+    "mocha": "2.5.3",
+    "lolex": "1.5.0"
   }
 }
